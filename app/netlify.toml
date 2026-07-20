@@ -1,0 +1,20 @@
+# Déploiement front SmokingApp (Netlify)
+# SPA Vite + PWA. Variables publiques VITE_* au build (clé publishable, URL
+# Supabase, clé VAPID publique — toutes destinées au client, aucun secret).
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  VITE_SUPABASE_URL = "https://ktxxwklxbmoobmuvnmmj.supabase.co"
+  VITE_SUPABASE_PUBLISHABLE_KEY = "sb_publishable_3ZFQQZ04lKDq78WLvNBP1Q_s8eIaIgs"
+  VITE_VAPID_PUBLIC_KEY = "BO2uEbLBR8kZ4kyOEez87tNa_mgGCB7P4HtkVkNa7SVHqi8DGPvaApLZ5aVHP1T1WdTyHgWf3Xbor53b4mxklC4"
+
+# Fallback SPA : les routes client (/compte/notifications, etc.) servent
+# index.html. Netlify sert d'abord les fichiers réels (sw.js, push-sw.js,
+# manifest.webmanifest, assets/*), donc ils ne sont pas capturés.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

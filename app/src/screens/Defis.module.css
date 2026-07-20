@@ -1,0 +1,163 @@
+.eyebrow {
+  margin: 0;
+  font: var(--text-caption-1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--content-on-immersive-subtle);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-h2);
+  color: var(--content-on-immersive);
+}
+
+.caption {
+  margin: 0;
+  font: var(--text-caption-1);
+  color: var(--content-on-immersive-subtle);
+}
+
+.trail {
+  padding: var(--spacing-base-6) var(--spacing-base-4) 0;
+}
+
+/* Colonne fixe pour que les connecteurs restent alignés d'un palier à
+   l'autre, quelle que soit la largeur du badge (le jour 90 est plus large). */
+.palier {
+  display: grid;
+  grid-template-columns: var(--spacing-base-14) 1fr;
+  gap: var(--spacing-base-3);
+}
+
+/* Les marqueurs sont des Badge (composant DS) : ici seulement leur
+   placement — le look & feel des états appartient au composant. */
+.marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.connector {
+  width: 2px;
+  flex: 1;
+  min-height: var(--spacing-base-4);
+  margin: 0;
+}
+
+.connectorDone {
+  background: var(--game-progress-done);
+}
+
+.connectorTodo {
+  background: var(--border-subtle);
+}
+
+.infos {
+  display: grid;
+  gap: var(--spacing-base-1);
+  padding-bottom: var(--spacing-base-6);
+}
+
+.label {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+}
+
+.labelLocked {
+  color: var(--foreground-subtle);
+}
+
+.sub {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+.currentBlock {
+  margin-top: var(--spacing-base-2);
+  display: grid;
+  gap: var(--spacing-base-2);
+}
+
+/* Placement du lien vers le détail (le look vient du composant Link). */
+.defiLink {
+  justify-self: start;
+  padding: 0;
+}
+
+/* ---- Phase préparation ---- */
+.prepBody {
+  display: grid;
+  gap: var(--spacing-base-6);
+  padding: var(--spacing-base-6) var(--spacing-base-4) 0;
+}
+
+.prepHead {
+  display: grid;
+  gap: var(--spacing-base-3);
+}
+
+.groupTitle {
+  margin: 0;
+  padding: 0;
+  font: var(--text-h5);
+  color: var(--foreground-default);
+}
+
+.missions {
+  display: grid;
+  gap: var(--spacing-base-3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.jday {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-subtle);
+}
+
+.rowTexts {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.jdayTitle {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+  /* la date en évidence, à la façon de la maquette (Samedi 18 Juillet) */
+  text-transform: capitalize;
+}
+
+.jdaySub {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+.prepNote {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}

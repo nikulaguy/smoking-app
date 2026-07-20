@@ -1,0 +1,74 @@
+/**
+ * Button — reprend le composant Button du DS Frontguys (Web Components).
+ * Deux types : primary (accent plein) et secondary (contour sur fond subtil).
+ */
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-base-2);
+  width: 100%;
+  /* géométrie et typo de la librairie : Regular 16 (body-2), padding 12/24 */
+  padding: var(--spacing-base-3) var(--spacing-base-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  font: var(--text-body-2);
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease;
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: default;
+    background: var(--background-accent-disabled);
+    border-color: transparent;
+    color: var(--foreground-default-invert);
+  }
+}
+
+.primary {
+  background: var(--background-accent);
+  color: var(--foreground-default-invert);
+
+  &:hover:not(:disabled) {
+    background: var(--background-accent-hover);
+  }
+}
+
+.secondary {
+  background: var(--background-subtle);
+  border-color: var(--border-interactive);
+  color: var(--foreground-interactive);
+
+  &:hover:not(:disabled) {
+    border-color: var(--border-interactive-hover);
+    color: var(--foreground-interactive-hover);
+  }
+
+  &:disabled {
+    background: var(--background-default-alt);
+    border-color: var(--border-interactive-disabled);
+    color: var(--foreground-interactive-disabled);
+  }
+}
+
+/* Type=ghost de la librairie : action tertiaire sous un bouton plein.
+   Règle : jamais deux boutons du même Type superposés ; un lien ne se
+   superpose jamais à un bouton (le lien reste pour les liens isolés). */
+.ghost {
+  background: var(--background-fade);
+  color: var(--foreground-interactive);
+
+  &:hover:not(:disabled) {
+    background: var(--background-fade-hover);
+    color: var(--foreground-interactive-hover);
+  }
+
+  &:disabled {
+    background: var(--background-fade);
+    color: var(--foreground-interactive-disabled);
+  }
+}

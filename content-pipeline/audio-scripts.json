@@ -1,0 +1,681 @@
+[
+  {
+    "slug": "resp-446",
+    "title": "Respirer en 4-4-6",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "On respire ensemble. Inspire par le nez sur quatre temps. Retiens l'air sur quatre. Souffle par la bouche sur six, tout doucement. L'expiration plus longue calme le corps. Encore une fois, à ton rythme."
+  },
+  {
+    "slug": "resp-478",
+    "title": "La respiration du soir",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Installe-toi confortablement. Inspire sur quatre temps. Retiens sur sept. Souffle très lentement sur huit. C'est une respiration qui prépare au calme. Trois cycles suffisent à faire redescendre la pression."
+  },
+  {
+    "slug": "resp-carree",
+    "title": "La respiration carrée",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Quatre côtés, quatre temps égaux. Inspire, un, deux, trois, quatre. Retiens, quatre temps. Souffle, quatre temps. Poumons vides, quatre temps. Comme dessiner un carré avec ton souffle. Simple, régulier, apaisant."
+  },
+  {
+    "slug": "resp-soupir",
+    "title": "Le double soupir",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Prends une première inspiration par le nez. Puis, sans souffler, une petite deuxième par-dessus, pour remplir tout en haut. Et relâche par la bouche, longuement. Deux soupirs comme ça, et le corps se dénoue."
+  },
+  {
+    "slug": "resp-ventre",
+    "title": "Respirer par le ventre",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Pose une main sur ton ventre. À l'inspiration, c'est lui qui se gonfle, pas la poitrine. À l'expiration, il redescend doucement. Respirer par le ventre, c'est dire à ton corps que tout va bien."
+  },
+  {
+    "slug": "resp-compter",
+    "title": "Compter ses souffles",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Rien à faire, juste compter. Inspire, un. Souffle. Inspire, deux. Souffle. Va jusqu'à dix, puis recommence. Si tu perds le fil, ce n'est pas grave, tu repars à un. L'esprit se pose sur les chiffres."
+  },
+  {
+    "slug": "resp-matin",
+    "title": "Réveiller son souffle",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Au réveil, avant tout, trois grandes respirations. Inspire l'air frais du matin, sens-le descendre. Souffle la nuit qui reste. Ton souffle est déjà plus ample qu'hier. Chaque jour sans fumer, il s'ouvre un peu plus."
+  },
+  {
+    "slug": "resp-pause",
+    "title": "Trois minutes pour toi",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Pose ce que tu fais. Trois minutes, rien que pour respirer. Inspire lentement, souffle plus lentement encore. Tu n'as rien à réussir. Juste être là, avec ton souffle, le temps que l'envie passe."
+  },
+  {
+    "slug": "resp-nez",
+    "title": "Tout par le nez",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Ferme la bouche. Respire uniquement par le nez, calmement. L'air se réchauffe, se filtre, arrive doucement. C'est plus lent, plus profond. En quelques respirations, le rythme cardiaque suit et ralentit."
+  },
+  {
+    "slug": "resp-eau",
+    "title": "Comme une vague",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Imagine la mer. À l'inspiration, la vague monte sur le sable. À l'expiration, elle se retire lentement. Ton souffle suit ce mouvement, sans effort. Monte, retire-toi. Le calme vient avec le va-et-vient."
+  },
+  {
+    "slug": "resp-tension",
+    "title": "Relâcher les épaules",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Inspire en montant les épaules vers les oreilles. Retiens un instant. Puis souffle en les laissant tomber d'un coup. La tension part avec l'air. Recommence trois fois, et sens le haut du corps s'alléger."
+  },
+  {
+    "slug": "resp-ancre",
+    "title": "Ton souffle, ton ancre",
+    "theme": "respiration",
+    "day_relevance": null,
+    "text": "Quand tout s'agite, il reste ton souffle. Il est toujours là, disponible. Reviens à lui, une inspiration, une expiration. Tu n'as pas besoin d'aller ailleurs. Ton souffle te ramène ici, maintenant."
+  },
+  {
+    "slug": "coh-365",
+    "title": "Cohérence, la base",
+    "theme": "coherence",
+    "day_relevance": null,
+    "text": "Cinq secondes pour inspirer, cinq pour souffler. Six respirations par minute. C'est le rythme qui met le cœur en cohérence. On le tient cinq minutes. Inspire cinq, souffle cinq. Régulier comme un métronome doux."
+  },
+  {
+    "slug": "coh-guide",
+    "title": "Cohérence guidée",
+    "theme": "coherence",
+    "day_relevance": null,
+    "text": "Inspire, deux, trois, quatre, cinq. Souffle, deux, trois, quatre, cinq. Continue à ce rythme. Ton cœur, ta respiration et ton esprit s'accordent. En quelques minutes, le stress baisse et l'envie avec lui."
+  },
+  {
+    "slug": "coh-visuel",
+    "title": "Monter et descendre",
+    "theme": "coherence",
+    "day_relevance": null,
+    "text": "Imagine une balle qui monte quand tu inspires, cinq secondes, et qui redescend quand tu souffles, cinq secondes. Suis-la des yeux fermés. Monte, descends. Ce mouvement régulier apaise tout le système nerveux."
+  },
+  {
+    "slug": "coh-fleur",
+    "title": "Le souffle de la fleur",
+    "theme": "coherence",
+    "day_relevance": null,
+    "text": "Inspire comme si tu sentais une fleur, doucement, cinq secondes. Souffle comme si tu faisais vaciller une bougie sans l'éteindre, cinq secondes. Sentir, souffler. Le geste est doux, le cœur suit."
+  },
+  {
+    "slug": "coh-avant",
+    "title": "Avant un moment tendu",
+    "theme": "coherence",
+    "day_relevance": null,
+    "text": "Tu sens qu'un moment difficile approche. Prends une longueur d'avance. Cinq minutes de cohérence, inspire cinq, souffle cinq. Tu arrives calme, prêt. Le craving trouve un corps déjà apaisé."
+  },
+  {
+    "slug": "coh-nuit",
+    "title": "Cohérence pour dormir",
+    "theme": "coherence",
+    "day_relevance": null,
+    "text": "Allongé, respire cinq secondes à l'inspiration, cinq à l'expiration. Mais insiste un peu plus sur le souffle qui sort. Le corps comprend qu'il peut lâcher. Le sommeil vient plus facilement sur un rythme lent."
+  },
+  {
+    "slug": "env-vague",
+    "title": "Surfer l'envie",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "L'envie est une vague. Elle monte, atteint un sommet, puis redescend toujours. Tu n'as pas à lutter contre elle, juste à rester debout dessus le temps qu'elle passe. Respire, observe. Elle est déjà en train de refluer."
+  },
+  {
+    "slug": "env-delai",
+    "title": "Attendre dix minutes",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Tu n'as pas à dire non pour toujours, juste pas maintenant. Accorde-toi dix minutes. Bois un verre d'eau, change de pièce, occupe tes mains. Dans dix minutes, l'envie aura beaucoup baissé, souvent elle sera partie."
+  },
+  {
+    "slug": "env-eau",
+    "title": "Un grand verre d'eau",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Va boire un grand verre d'eau, lentement, gorgée par gorgée. Ce geste occupe la bouche et les mains, ceux-là mêmes qui réclament la cigarette. Le temps du verre, l'envie perd de sa force."
+  },
+  {
+    "slug": "env-mains",
+    "title": "Occuper ses mains",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "L'envie passe beaucoup par les mains. Attrape quelque chose : un stylo, une balle, tes clés. Manipule, tourne, presse. Pendant que tes mains sont prises, le geste automatique de fumer n'a plus de place."
+  },
+  {
+    "slug": "env-marche",
+    "title": "Bouger deux minutes",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Lève-toi et marche, même deux minutes, même sur place. Le mouvement change la chimie du corps et coupe l'envie. Monte un étage, fais le tour de la pièce. Au retour, tu verras, ce n'est déjà plus pareil."
+  },
+  {
+    "slug": "env-froid",
+    "title": "De l'eau froide",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Passe tes poignets sous l'eau froide, ou asperge ton visage. Le froid réveille, recentre, et casse net la spirale de l'envie. Une petite secousse pour l'esprit, et te revoilà présent."
+  },
+  {
+    "slug": "env-pourquoi",
+    "title": "Ton pourquoi",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Au moment de l'envie, souviens-toi pourquoi tu as commencé cet arrêt. Ta raison à toi. Elle est plus forte qu'une cigarette. Repense à elle, garde-la devant les yeux. C'est elle qui décide, pas l'envie."
+  },
+  {
+    "slug": "env-5432",
+    "title": "Cinq, quatre, trois",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Ancre-toi. Nomme cinq choses que tu vois. Quatre que tu entends. Trois que tu peux toucher. Deux que tu sens. Une que tu goûtes. Le temps de cet inventaire, ton esprit quitte l'envie et revient au réel."
+  },
+  {
+    "slug": "env-scan",
+    "title": "Où est l'envie ?",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Curieux plutôt que contre. Où sens-tu l'envie dans ton corps ? La gorge, la poitrine, les mains ? Observe-la comme une sensation, sans la juger. Rien qu'en la regardant, elle perd son emprise et se dissout."
+  },
+  {
+    "slug": "env-recompense",
+    "title": "La vraie récompense",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "La cigarette promet un soulagement de quelques minutes, puis reprend son dû. Résister, c'est la vraie récompense : la fierté, le souffle, la liberté qui reste. Ce moment gagné, personne ne te l'enlève."
+  },
+  {
+    "slug": "env-substitut",
+    "title": "Autre chose en bouche",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Un chewing-gum, un bâton de réglisse, un fruit croquant, une tisane chaude. Donne à ta bouche autre chose à faire. Le besoin est souvent un geste plus qu'un manque. Remplace le geste, et l'envie s'apaise."
+  },
+  {
+    "slug": "env-respire",
+    "title": "Respirer plutôt qu'allumer",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "La cigarette, c'est d'abord une grande inspiration. Alors offre-toi cette inspiration sans elle. Trois respirations profondes, lentes, comme une bouffée mais d'air pur. Le corps reçoit ce qu'il cherchait, en mieux."
+  },
+  {
+    "slug": "env-message",
+    "title": "Écris à un proche",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Plutôt que d'allumer, envoie un message à quelqu'un qui compte. Dis-lui bonjour, ou juste que tu tiens bon. Le lien coupe l'envie, et tu transformes ce moment en petit pas partagé."
+  },
+  {
+    "slug": "env-liste",
+    "title": "Ce que tu gagnes",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Prends dix secondes pour lister ce que cette envie non fumée te rapporte. Un peu d'argent, un peu de souffle, un peu de fierté. Ça paraît petit, mais additionné, jour après jour, ça change une vie."
+  },
+  {
+    "slug": "env-nuit",
+    "title": "Une envie le soir",
+    "theme": "anti-envie",
+    "day_relevance": null,
+    "text": "Le soir, la fatigue rend l'envie plus forte. C'est normal. Ne lutte pas de front : baisse la lumière, respire lentement, et va vers le sommeil. Demain matin, tu seras fier d'avoir laissé passer celle-là."
+  },
+  {
+    "slug": "mot-toi",
+    "title": "D'abord pour toi",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Tu ne fais pas ça pour les autres, ni pour la morale. Tu le fais pour toi, pour te sentir libre et fier. C'est la plus solide des raisons. Cette énergie vient de l'intérieur, et personne ne peut te la retirer."
+  },
+  {
+    "slug": "mot-proches",
+    "title": "Pour ceux que tu aimes",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Pense à ceux qui comptent pour toi. À l'exemple que tu leur donnes, au temps que tu veux passer avec eux, en pleine forme. Chaque jour sans fumer, c'est un peu de vie que tu leur offres, et que tu t'offres."
+  },
+  {
+    "slug": "mot-liberte",
+    "title": "Reprendre les commandes",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Fumer, c'est laisser un paquet décider de tes pauses, de ton humeur, de ton argent. Arrêter, c'est reprendre les commandes. Plus rien ne te sonne, plus rien ne te tient. Tu redeviens libre de ton temps."
+  },
+  {
+    "slug": "mot-argent",
+    "title": "Ce que tu mets de côté",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Compte ce que la cigarette te coûtait par semaine, par mois, par an. C'est un voyage, un cadeau, une réserve. Cet argent qui partait en fumée reste maintenant dans ta poche. Il devient tes projets."
+  },
+  {
+    "slug": "mot-fierte",
+    "title": "La fierté du soir",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Le soir, quand tu repenses à ta journée sans fumer, il y a cette petite fierté tranquille. Tu as tenu. Tu t'es choisi. Cette fierté-là ne s'achète pas, elle se gagne, une journée après l'autre."
+  },
+  {
+    "slug": "mot-identite",
+    "title": "Tu n'es plus fumeur",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Le changement le plus fort, c'est de ne plus te penser comme un fumeur qui arrête, mais comme quelqu'un qui ne fume pas. Ce n'est pas une privation, c'est qui tu es en train de devenir. Et ça te va bien."
+  },
+  {
+    "slug": "mot-progres",
+    "title": "Regarde le chemin",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Ne regarde pas seulement la montagne qui reste. Retourne-toi et vois le chemin déjà parcouru. Chaque jour franchi est une preuve que tu en es capable. Tu as déjà fait le plus dur : commencer."
+  },
+  {
+    "slug": "mot-souffle",
+    "title": "Ton souffle revient",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Monter un escalier sans t'arrêter. Sentir vraiment un plat, un parfum. Courir après quelqu'un en riant. Ton souffle et tes sens reviennent, jour après jour. C'est ça que tu gagnes, concrètement."
+  },
+  {
+    "slug": "mot-difficile",
+    "title": "Les jours sans",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Il y aura des jours plus durs. Ça ne veut pas dire que tu échoues, ça veut dire que tu traverses. Sois doux avec toi ces jours-là. Tenir un jour difficile, c'est encore plus fort que tenir un jour facile."
+  },
+  {
+    "slug": "mot-futur",
+    "title": "Dans un an",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Imagine-toi dans un an. Le souffle ample, l'odeur partie, l'argent économisé, la fierté installée. Cette personne-là existe déjà en germe, dans chaque envie que tu laisses passer aujourd'hui."
+  },
+  {
+    "slug": "mot-petit",
+    "title": "Un pas suffit",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Tu n'as pas à arrêter pour toute ta vie d'un coup. Tu as juste à ne pas fumer maintenant, aujourd'hui. C'est tout. Additionne les maintenant, et les jours se construisent tout seuls."
+  },
+  {
+    "slug": "mot-choix",
+    "title": "Chaque envie, un choix",
+    "theme": "motivation",
+    "day_relevance": null,
+    "text": "Chaque envie qui passe est une petite occasion de te choisir. Ce n'est pas un combat, c'est un vote. À chaque fois, tu votes pour la personne que tu veux être. Et ces votes-là s'accumulent."
+  },
+  {
+    "slug": "sante-20min",
+    "title": "Après 20 minutes",
+    "theme": "sante",
+    "day_relevance": 1,
+    "text": "Vingt minutes seulement après ta dernière cigarette, ton pouls et ta tension commencent déjà à redescendre. Ton corps n'attend pas pour se réparer. Il a commencé, là, maintenant."
+  },
+  {
+    "slug": "sante-8h",
+    "title": "Après 8 heures",
+    "theme": "sante",
+    "day_relevance": 1,
+    "text": "Huit heures sans fumer, et le taux de monoxyde de carbone dans ton sang a chuté de moitié. L'oxygène recircule mieux. Tes organes respirent. Tu le sens à peine, mais tout se remet en route."
+  },
+  {
+    "slug": "sante-24h",
+    "title": "Après 24 heures",
+    "theme": "sante",
+    "day_relevance": 1,
+    "text": "Un jour entier. Le monoxyde de carbone a quitté ton corps, et le risque d'accident cardiaque commence déjà à baisser. Vingt-quatre heures, et ton cœur te dit déjà merci."
+  },
+  {
+    "slug": "sante-48h",
+    "title": "Après 48 heures",
+    "theme": "sante",
+    "day_relevance": 2,
+    "text": "Deux jours. La nicotine a totalement quitté ton organisme. Ton goût et ton odorat se réveillent. Les aliments reprennent de la saveur, les parfums de la profondeur. Bienvenue à nouveau dans tes sens."
+  },
+  {
+    "slug": "sante-72h",
+    "title": "Après 72 heures",
+    "theme": "sante",
+    "day_relevance": 3,
+    "text": "Trois jours. C'est souvent le pic du manque, alors sois fier d'y être. En même temps, tes bronches se détendent et respirer devient plus facile. Le plus dur du sevrage physique est derrière toi."
+  },
+  {
+    "slug": "sante-2sem",
+    "title": "Après deux semaines",
+    "theme": "sante",
+    "day_relevance": 14,
+    "text": "Deux semaines à un mois. Ta circulation s'améliore nettement, marcher et bouger deviennent plus faciles. Le souffle est là. Ton corps a passé un cap, et ça se sent dans le quotidien."
+  },
+  {
+    "slug": "sante-1mois",
+    "title": "Après un mois",
+    "theme": "sante",
+    "day_relevance": 30,
+    "text": "Un mois. La toux et l'essoufflement diminuent. Tes poumons commencent à se nettoyer pour de bon, les petits cils qui les protègent repoussent. Tu récupères de l'énergie que tu avais oubliée."
+  },
+  {
+    "slug": "sante-3mois",
+    "title": "Après trois mois",
+    "theme": "sante",
+    "day_relevance": 90,
+    "text": "Trois mois. Ta fonction pulmonaire a nettement progressé, parfois de près d'un tiers. Le risque cardiaque continue de chuter. Le sommet approche, et ton corps est déjà un autre."
+  },
+  {
+    "slug": "sante-peau",
+    "title": "Ta peau respire",
+    "theme": "sante",
+    "day_relevance": null,
+    "text": "En quelques semaines, ta peau retrouve des couleurs. Mieux oxygénée, mieux irriguée, elle paraît plus nette et plus reposée. Le teint terne des fumeurs s'efface doucement. Ton miroir le remarquera."
+  },
+  {
+    "slug": "sante-gout",
+    "title": "Le goût revient",
+    "theme": "sante",
+    "day_relevance": null,
+    "text": "As-tu remarqué que le café a un goût plus rond, que les plats sont plus francs ? En arrêtant, tes papilles et ton nez se régénèrent. Manger redevient un plaisir plein. C'est un cadeau discret de l'arrêt."
+  },
+  {
+    "slug": "sante-cardio",
+    "title": "Ton cœur récupère",
+    "theme": "sante",
+    "day_relevance": null,
+    "text": "Chaque jour sans fumer, ton cœur travaille un peu moins pour rien. La tension baisse, les vaisseaux se détendent. Sur un an, le risque de maladie cardiaque est presque divisé par deux. C'est énorme, et c'est pour toi."
+  },
+  {
+    "slug": "sante-poumons",
+    "title": "Tes poumons se nettoient",
+    "theme": "sante",
+    "day_relevance": null,
+    "text": "Tes poumons sont faits pour se réparer. Une fois la fumée partie, les cils qui balaient les impuretés repoussent et se remettent au travail. La toux des premières semaines, c'est souvent ça : le grand ménage qui commence."
+  },
+  {
+    "slug": "dodo-refuge",
+    "title": "Le refuge de pierre",
+    "theme": "sommeil",
+    "day_relevance": null,
+    "text": "Ferme les yeux. Un sentier de montagne au petit matin, l'air pur qui entre facilement. À chaque pas tu montes, sans te presser. Plus haut, un refuge de pierre t'attend, un feu de bois qui réchauffe. Tu y arrives. Tu es bien."
+  },
+  {
+    "slug": "dodo-plage",
+    "title": "La plage au soleil",
+    "theme": "sommeil",
+    "day_relevance": null,
+    "text": "Imagine une plage tranquille en fin de journée. Le sable tiède sous toi, le bruit régulier des vagues. À chaque vague qui se retire, tu t'enfonces un peu plus dans la détente. Il n'y a rien à faire, juste écouter la mer."
+  },
+  {
+    "slug": "dodo-scan",
+    "title": "Détendre le corps",
+    "theme": "sommeil",
+    "day_relevance": null,
+    "text": "Porte ton attention sur tes pieds, et relâche-les. Puis tes jambes, ton ventre, tes épaules, ta mâchoire, ton front. À chaque zone, laisse le poids s'installer. Le corps devient lourd, calme. Le sommeil s'approche."
+  },
+  {
+    "slug": "dodo-foret",
+    "title": "La forêt calme",
+    "theme": "sommeil",
+    "day_relevance": null,
+    "text": "Une forêt au coucher du soleil. La lumière dorée entre les arbres, l'odeur de terre et de résine. Tes pas sont silencieux sur la mousse. Chaque respiration te dépose un peu plus dans ce lieu paisible."
+  },
+  {
+    "slug": "dodo-nuages",
+    "title": "Regarder les nuages",
+    "theme": "sommeil",
+    "day_relevance": null,
+    "text": "Allongé dans l'herbe, tu regardes des nuages passer, lents, sans forme précise. Tes pensées font pareil : elles passent, tu les laisses filer. Aucune n'a besoin d'être retenue. Le ciel se vide, ton esprit aussi."
+  },
+  {
+    "slug": "dodo-poids",
+    "title": "Se laisser porter",
+    "theme": "sommeil",
+    "day_relevance": null,
+    "text": "Sens le lit qui te porte entièrement. Tu n'as plus rien à tenir, plus rien à contrôler. Laisse ton corps peser, s'enfoncer, se confier au matelas. Respire lentement. Tu es en sécurité, tu peux lâcher."
+  },
+  {
+    "slug": "dodo-journee",
+    "title": "Poser la journée",
+    "theme": "sommeil",
+    "day_relevance": null,
+    "text": "La journée est finie, tu l'as traversée sans fumer, ou tu as fait de ton mieux. Dépose-la, comme un sac qu'on pose enfin. Rien à régler ce soir. Demain est un autre jour. Cette nuit, tu te reposes, simplement."
+  },
+  {
+    "slug": "dodo-souffle",
+    "title": "Compter vers le sommeil",
+    "theme": "sommeil",
+    "day_relevance": null,
+    "text": "Respire lentement et compte tes expirations à l'envers, à partir de dix. Dix, le corps se pose. Neuf, les épaules tombent. Huit, la mâchoire se relâche. Continue, sans effort. Souvent, on n'arrive jamais à un."
+  },
+  {
+    "slug": "dodo-gratitude",
+    "title": "Trois choses douces",
+    "theme": "sommeil",
+    "day_relevance": null,
+    "text": "Avant de dormir, repense à trois petites choses agréables d'aujourd'hui. Un rayon de soleil, un sourire, un moment tranquille. Rien de grand. L'esprit s'endort mieux sur du doux que sur des soucis."
+  },
+  {
+    "slug": "dodo-etoiles",
+    "title": "Sous les étoiles",
+    "theme": "sommeil",
+    "day_relevance": null,
+    "text": "Imagine-toi allongé dehors, une nuit claire, à regarder les étoiles. Le silence est immense et bienveillant. Tu te sens tout petit et parfaitement à ta place. Ta respiration ralentit au rythme du ciel."
+  },
+  {
+    "slug": "anc-present",
+    "title": "Revenir à l'instant",
+    "theme": "ancrage",
+    "day_relevance": null,
+    "text": "Où es-tu, là, maintenant ? Sens tes pieds au sol, le poids de ton corps, l'air sur ta peau. Tu n'es ni dans hier ni dans demain. Juste ici. L'instant présent est le seul endroit où l'envie n'a pas de prise."
+  },
+  {
+    "slug": "anc-mains",
+    "title": "Sentir ses mains",
+    "theme": "ancrage",
+    "day_relevance": null,
+    "text": "Ferme les yeux et porte toute ton attention sur tes mains. La température, les picotements, le contact de l'air. Reste là une minute. Ramener l'esprit dans le corps suffit souvent à faire redescendre l'agitation."
+  },
+  {
+    "slug": "anc-sons",
+    "title": "Écouter autour",
+    "theme": "ancrage",
+    "day_relevance": null,
+    "text": "Sans bouger, écoute. Le son le plus proche, puis le plus lointain. Un bruit continu, un bruit qui va et vient. N'analyse pas, écoute simplement. Les sons te ramènent dans le présent, doucement."
+  },
+  {
+    "slug": "anc-cafe",
+    "title": "Boire en conscience",
+    "theme": "ancrage",
+    "day_relevance": null,
+    "text": "La prochaine boisson chaude, prends-la vraiment. La chaleur de la tasse dans tes mains, la vapeur, la première gorgée. Un instant entier rien que pour ça. C'est un plaisir simple, et il n'a pas besoin de cigarette."
+  },
+  {
+    "slug": "anc-pas",
+    "title": "Marcher en conscience",
+    "theme": "ancrage",
+    "day_relevance": null,
+    "text": "Marche un peu plus lentement que d'habitude. Sens chaque pied qui se pose, se déroule, se soulève. Le rythme régulier de la marche apaise l'esprit. Quelques pas attentifs, et l'envie s'est éloignée."
+  },
+  {
+    "slug": "anc-corps",
+    "title": "Trois grandes minutes",
+    "theme": "ancrage",
+    "day_relevance": null,
+    "text": "Une minute pour observer tes pensées, sans les suivre. Une minute pour ramener l'attention sur ton souffle. Une minute pour élargir à tout ton corps. Trois minutes qui remettent de l'ordre quand tout va trop vite."
+  },
+  {
+    "slug": "anc-sourire",
+    "title": "Un demi-sourire",
+    "theme": "ancrage",
+    "day_relevance": null,
+    "text": "Détends ton visage et laisse venir un léger sourire, même pour rien. Le corps envoie alors au cerveau un signal d'apaisement. C'est étrange et ça marche : le calme peut commencer par le visage."
+  },
+  {
+    "slug": "sit-reveil",
+    "title": "La première du matin",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "Le réveil, le café, et d'habitude la cigarette. C'est le geste le plus ancré. Ce matin, remplace-le : trois respirations profondes à la fenêtre, un verre d'eau. Le corps cherche un rituel, offre-lui celui-là."
+  },
+  {
+    "slug": "sit-cafe",
+    "title": "Le café sans clope",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "Le café appelle la cigarette par habitude, pas par besoin. Casse le lien : bois-le à un autre endroit, ou tiens la tasse de l'autre main. Savoure vraiment le café. En quelques jours, le duo se défait tout seul."
+  },
+  {
+    "slug": "sit-repas",
+    "title": "Après le repas",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "La fin du repas est un moment classique d'envie. Lève-toi de table, va te laver les dents, bois de l'eau, ou sors deux minutes. Change la suite habituelle du repas, et l'automatisme perd son signal."
+  },
+  {
+    "slug": "sit-soiree",
+    "title": "En soirée",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "En soirée, entre l'ambiance et les autres qui fument, l'envie monte. Prépare-toi : un verre non alcoolisé dans la main, une phrase simple pour décliner, un pote au courant. Tu peux profiter de la fête sans la cigarette."
+  },
+  {
+    "slug": "sit-alcool",
+    "title": "Un verre en main",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "L'alcool baisse la garde et réveille l'envie. Ce n'est pas de la faiblesse, c'est chimique. Alterne avec de l'eau, garde tes mains occupées, et rappelle-toi pourquoi tu tiens. Un moment de vigilance, et ça passe."
+  },
+  {
+    "slug": "sit-trajet",
+    "title": "Sur le trajet",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "Le trajet, les mains libres, l'esprit qui vagabonde : terrain d'envie. Occupe-le autrement. Un podcast, une musique, un appel, ou juste respirer au rythme de tes pas. Le trajet peut devenir ton moment à toi."
+  },
+  {
+    "slug": "sit-pause",
+    "title": "La pause au travail",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "La pause cigarette, c'était surtout une vraie pause. Garde la pause, change le contenu. Sors prendre l'air, étire-toi, appelle quelqu'un. Tu as le droit de souffler. Simplement, autrement."
+  },
+  {
+    "slug": "sit-stress",
+    "title": "Un coup de stress",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "Le stress monte et la cigarette semble être la solution. Mais elle ne règle rien, elle ne fait que déplacer. La vraie détente, c'est le souffle. Trois expirations longues, et le stress redescend d'un cran, pour de vrai."
+  },
+  {
+    "slug": "sit-ennui",
+    "title": "Quand tu t'ennuies",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "L'ennui pousse à fumer pour s'occuper. Alors donne à l'ennui autre chose : marche un peu, envoie un message, range un tiroir, bois un thé. Une petite action à la place du geste, et l'envie n'a pas le temps de s'installer."
+  },
+  {
+    "slug": "sit-colere",
+    "title": "Quand tu es agacé",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "La colère cherche une sortie, et la cigarette s'offre comme exutoire. Mais elle t'enlève le contrôle au lieu de te le rendre. Souffle fort et long, deux ou trois fois. Bouge. La tension redescend, et c'est toi qui gardes la main."
+  },
+  {
+    "slug": "sit-attente",
+    "title": "En attendant",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "Faire la queue, attendre un bus, patienter : ces temps morts appellent la cigarette. Remplis-les autrement. Respire, observe autour de toi, occupe tes mains. Un temps d'attente n'est pas un temps à fumer."
+  },
+  {
+    "slug": "sit-telephone",
+    "title": "Au téléphone",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "Téléphoner et fumer allaient souvent ensemble. Pendant l'appel, prends un stylo, gribouille, marche un peu. Donne à ta main occupée un autre rôle. La conversation se passe très bien sans la fumée."
+  },
+  {
+    "slug": "sit-ecran",
+    "title": "Devant un écran",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "Devant l'ordinateur ou la télé, la main cherche machinalement le paquet. Éloigne-le, mets un verre d'eau à la place. Fais une vraie coupure toutes les demi-heures. L'écran n'a pas besoin de cigarette pour tourner."
+  },
+  {
+    "slug": "sit-conduite",
+    "title": "Au volant",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "En voiture, seul, l'envie revient par habitude. Aère, mets une musique que tu aimes, mâche un chewing-gum. Fais de ton habitacle un espace sans fumée, plus agréable, plus net. Ton trajet y gagne."
+  },
+  {
+    "slug": "sit-autres",
+    "title": "Les autres fument",
+    "theme": "situation",
+    "day_relevance": null,
+    "text": "Autour de toi, certains fument encore, et l'odeur rappelle l'envie. Ce n'est pas contre toi. Éloigne-toi un instant, respire de l'air frais, reviens quand ça passe. Leur choix n'a pas à devenir le tien."
+  },
+  {
+    "slug": "rech-glissade",
+    "title": "Une glissade, pas une chute",
+    "theme": "bienveillance",
+    "day_relevance": null,
+    "text": "Si tu as refumé, ce n'est pas fini, et ce n'est pas un échec. Une cigarette n'efface pas les jours gravis. C'est une glissade, pas une chute. Ton corps garde le terrain gagné. On repart d'où tu es, sans te juger."
+  },
+  {
+    "slug": "rech-comprendre",
+    "title": "Comprendre, pas se punir",
+    "theme": "bienveillance",
+    "day_relevance": null,
+    "text": "Plutôt que de t'en vouloir, regarde ce qui s'est passé. Quel moment, quelle émotion, quel déclencheur ? Ce n'est pas une faute à punir, c'est une information précieuse. Elle t'aide à mieux préparer la prochaine fois."
+  },
+  {
+    "slug": "rech-repartir",
+    "title": "Repartir maintenant",
+    "theme": "bienveillance",
+    "day_relevance": null,
+    "text": "Le meilleur moment pour repartir, ce n'est pas lundi, ni demain. C'est maintenant, à la prochaine décision. Tu n'as pas tout perdu. Tu as juste un pas à refaire, et tu sais déjà comment marcher."
+  },
+  {
+    "slug": "rech-doux",
+    "title": "Sois doux avec toi",
+    "theme": "bienveillance",
+    "day_relevance": null,
+    "text": "Arrêter de fumer est un des changements les plus difficiles qui soient. Tu t'y attelles, c'est déjà courageux. Parle-toi comme tu parlerais à un ami qui traverse ça : avec patience, pas avec dureté."
+  },
+  {
+    "slug": "rech-normal",
+    "title": "Les rechutes sont normales",
+    "theme": "bienveillance",
+    "day_relevance": null,
+    "text": "La plupart des gens qui arrêtent pour de bon ont rechuté avant. Ce n'est pas l'exception, c'est le chemin habituel. Chaque tentative t'apprend quelque chose. Tu ne repars jamais de zéro, tu repars de ton expérience."
+  },
+  {
+    "slug": "rech-acquis",
+    "title": "Ce qui reste gagné",
+    "theme": "bienveillance",
+    "day_relevance": null,
+    "text": "Même après une cigarette, l'argent économisé reste économisé, les jours sans restent vécus, ce que tu as appris reste appris. Rien de tout ça ne s'annule. Tu construis sur du solide, même les jours moins bons."
+  },
+  {
+    "slug": "rech-jour1",
+    "title": "Le jour de l'arrêt",
+    "theme": "bienveillance",
+    "day_relevance": null,
+    "text": "Aujourd'hui commence quelque chose. Pas besoin d'être parfait, juste de commencer. Le camp de base t'attend. Chaque petite victoire compte, même minuscule. On avance un jour à la fois, ensemble."
+  },
+  {
+    "slug": "rech-fier",
+    "title": "Fier du chemin",
+    "theme": "bienveillance",
+    "day_relevance": null,
+    "text": "Prends un instant pour reconnaître ce que tu fais. Tu affrontes une des habitudes les plus tenaces qui soient, et tu tiens. Peu importe le rythme. Le simple fait d'essayer, encore, mérite ta fierté."
+  }
+]

@@ -1,0 +1,112 @@
+.eyebrow {
+  margin: 0;
+  font: var(--text-caption-1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--content-on-immersive-subtle);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-h3);
+  color: var(--content-on-immersive);
+}
+
+.caption {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--content-on-immersive-subtle);
+}
+
+.body {
+  display: grid;
+  gap: var(--spacing-base-6);
+  padding: var(--spacing-base-6) var(--spacing-base-4) 0;
+}
+
+.section {
+  display: grid;
+  gap: var(--spacing-base-2);
+}
+
+.sectionTitle {
+  margin: 0;
+  font: var(--text-h5);
+  color: var(--foreground-default);
+}
+
+.settings {
+  display: grid;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-3) 0;
+  border: 0;
+  border-bottom: 1px solid var(--border-subtle);
+  background: none;
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}
+
+.rowDanger {
+  color: var(--foreground-error);
+}
+
+/* Valeur d'état d'une ligne de réglage (ex. email connecté). */
+.rowValue {
+  margin-left: auto;
+  font: var(--text-caption-1);
+  color: var(--foreground-subtle);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 55%;
+}
+
+.chevron {
+  flex: none;
+  color: var(--foreground-subtle);
+}
+
+.note {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+/* Sélecteur de thème (Apparence). */
+.themeOptions {
+  display: grid;
+  gap: var(--spacing-base-3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,285 @@
+/**
+ * deco/* — langage graphique « Ligne de crête ».
+ * Purement décoratif : toujours aria-hidden, jamais porteur d'information.
+ */
+.creteWrap {
+  position: absolute;
+  inset: auto 0 0 0;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  /* Respiration perpétuelle très lente des montagnes. */
+  animation: creteDrift 60s ease-in-out infinite;
+}
+
+@keyframes creteDrift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+/* Travelling latéral lent mais PERCEPTIBLE : chaque strate est dessinée à
+   120 % de la largeur et glisse en aller-retour. L'avant (34 s) va deux fois
+   plus vite que l'arrière (68 s, départ déphasé) : cette différence crée la
+   parallaxe, comme une caméra lointaine en mouvement régulier. */
+.strate {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 120%;
+  will-change: transform;
+}
+
+.strateBack {
+  animation: strateDrift 68s ease-in-out -30s infinite alternate;
+}
+
+.strateFront {
+  animation: strateDrift 34s ease-in-out infinite alternate;
+}
+
+@keyframes strateDrift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* toute la sur-largeur : -20/120 de la largeur de la strate */
+    transform: translateX(-16.66%);
+  }
+}
+
+.creteSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Drapeau planté sur le pic avant de la crête (x=92, y=32 dans le viewBox
+   375×90). Positionné en % de la hauteur de la crête → toujours sur le
+   sommet quelle que soit la hauteur, sans distorsion (SVG non étiré). */
+.flag {
+  position: absolute;
+  left: calc(24.53% - 1px);
+  bottom: 64.44%;
+  width: 16px;
+  height: 22px;
+  overflow: visible;
+}
+
+/* Vent : la vague se propage de la hampe vers la pointe (amplitudes
+   croissantes, retards en cascade), et une modulation lente sur l'ensemble
+   du fanion (10 s, non multiple de 1,1 s → rafales jamais répétitives). */
+.flagCloth {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: flagGust 10s ease-in-out infinite;
+}
+
+.flagSeg1,
+.flagSeg2,
+.flagSeg3 {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: flagWave 1.1s ease-in-out infinite;
+}
+
+.flagSeg1 {
+  --wave: 2deg;
+}
+.flagSeg2 {
+  --wave: 5deg;
+  animation-delay: -0.14s;
+}
+.flagSeg3 {
+  --wave: 9deg;
+  animation-delay: -0.28s;
+}
+
+@keyframes flagWave {
+  0%,
+  100% {
+    transform: rotate(calc(var(--wave) * -1));
+  }
+  50% {
+    transform: rotate(var(--wave));
+  }
+}
+
+@keyframes flagGust {
+  0%,
+  100% {
+    transform: rotate(0deg) scaleX(1);
+  }
+  22% {
+    transform: rotate(-2deg) scaleX(0.97);
+  }
+  48% {
+    transform: rotate(1deg) scaleX(1);
+  }
+  74% {
+    transform: rotate(-1deg) scaleX(0.985);
+  }
+}
+
+.divider {
+  display: block;
+  width: 100%;
+  height: 12px;
+  color: var(--game-progress-done);
+  opacity: 0.6;
+}
+
+/* Astre (soleil / lune). Position pilotée par le moment de la journée via
+   --sky-elevation (0 horizon → 1 zénith) et --sky-azimuth (0 lever → 1 coucher),
+   posées par le Hero. Reste dans le coin haut-droit (jamais derrière le titre,
+   pour préserver le contraste A11Y). + safe-area pour ne pas toucher l'encoche. */
+.soleil {
+  position: absolute;
+  /* Au ras du coin haut-droit, TOUJOURS à droite du surtitre (jamais derrière
+     le texte) pour préserver le contraste A11Y. Le moment de la journée fait
+     seulement monter/descendre l'astre (élévation), sans le décaler vers le
+     texte. + safe-area pour ne pas toucher l'encoche. */
+  top: calc(
+    env(safe-area-inset-top) + var(--spacing-base-4) +
+      (1 - var(--sky-elevation, 1)) * 20px
+  );
+  right: var(--spacing-base-4);
+  border-radius: 50%;
+  pointer-events: none;
+  /* Course en arc très lente (3,5 min par traversée, aller-retour) : l'astre
+     monte puis redescend en dérivant vers la gauche — imperceptible en regard
+     direct, sensible en vision périphérique. Étapes easées ⇒ trajectoire
+     courbe. Reste loin du bord (jamais derrière le texte). */
+  animation: bodyArc 210s ease-in-out infinite alternate;
+}
+
+@keyframes bodyArc {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-3px, -3px);
+  }
+  50% {
+    transform: translate(-6px, -4.5px);
+  }
+  75% {
+    transform: translate(-9px, -3px);
+  }
+  100% {
+    transform: translate(-12px, 0);
+  }
+}
+
+/* Deux halos qui respirent à des périodes premières entre elles (5 s / 9 s) :
+   les cycles ne se réalignent que rarement, la lumière vit sans boucle
+   perceptible. Amplitudes franches (l'astre doit VIVRE au premier regard).
+   Uniquement opacity/scale : composité, coût nul. */
+.soleil::before,
+.soleil::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.soleil::before {
+  inset: -42%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--halo-color, var(--game-level)) 46%, transparent) 0%,
+    transparent 70%
+  );
+  animation: glowInner 5s ease-in-out infinite;
+}
+
+.soleil::after {
+  inset: -85%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--halo-color, var(--game-level)) 30%, transparent) 0%,
+    transparent 72%
+  );
+  animation: glowOuter 9s ease-in-out infinite;
+}
+
+@keyframes glowInner {
+  0%,
+  100% {
+    opacity: 0.45;
+    scale: 1;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.18;
+  }
+}
+
+@keyframes glowOuter {
+  0%,
+  100% {
+    opacity: 0.3;
+    scale: 1;
+  }
+  50% {
+    opacity: 0.9;
+    scale: 1.22;
+  }
+}
+
+/* Soleil : disque chaud + halo, qui respire doucement (scale, propriété
+   séparée : ne se dispute pas le transform de bodyArc). */
+.soleil[data-body="sun"] {
+  background: var(--game-level);
+  box-shadow: 0 0 26px 3px color-mix(in srgb, var(--game-level) 48%, transparent);
+  animation:
+    bodyArc 210s ease-in-out infinite alternate,
+    sunBreath 7s ease-in-out infinite;
+}
+
+@keyframes sunBreath {
+  0%,
+  100% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.05;
+  }
+}
+
+/* Lune : disque pâle + halo froid + morsure en croissant (couleur du ciel de
+   nuit, posée par le Hero via --sky-bite). */
+.soleil[data-body="moon"] {
+  --halo-color: #bcd2e6;
+  background: #e6edf2;
+  box-shadow: 0 0 22px 3px color-mix(in srgb, #bcd2e6 42%, transparent);
+}
+
+/* La morsure du croissant occupe ::after : la lune garde son halo interne
+   (::before) et cède le halo externe à la morsure (plus sobre de nuit). */
+.soleil[data-body="moon"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--sky-bite, #161b38);
+  transform: translate(26%, -16%);
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soleil,
+  .soleil::before,
+  .soleil::after,
+  .creteWrap,
+  .strate,
+  .flagCloth,
+  .flagSeg1,
+  .flagSeg2,
+  .flagSeg3 {
+    animation: none;
+  }
+}

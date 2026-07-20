@@ -1,0 +1,13 @@
+/**
+ * sos-craving — action d'aide immédiate, flottante et persistante au-dessus
+ * de la tab-bar. Source Figma : sos-craving (node 67:1107).
+ */
+/* Le composant ne se positionne pas lui-même : le flottement au-dessus de la
+   tab bar est la responsabilité du layout hôte (cf. AppLayout .dock). */
+.root {
+  padding: var(--spacing-base-3) var(--spacing-base-4);
+}
+
+.button {
+  box-shadow: var(--shadow-floating);
+}

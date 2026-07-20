@@ -1,0 +1,35 @@
+/**
+ * BlockQuote — miroir du composant blockQuote de Foundation - Web
+ * Components : panneau vertical padding 16 gap 8, fond default-alt,
+ * citation italique + attribution Medium 14. L'écran hôte peut porter
+ * le fond (fond dédié) en passant `className` avec `background: none`.
+ */
+.root {
+  margin: 0;
+  display: grid;
+  gap: var(--spacing-base-2);
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-default-alt);
+}
+
+.quote {
+  margin: 0;
+  font-style: italic;
+  color: var(--foreground-default);
+}
+
+/* citation par défaut du DS : Italic 18 (body-1) */
+.quoteDefault {
+  font: italic 400 18px/1.65 var(--font-family);
+}
+
+/* exergue (phrase du dashboard, override validé) : corps 20 */
+.quoteExergue {
+  font: italic 400 20px/1.45 var(--font-family);
+}
+
+.author {
+  font: var(--text-caption-1);
+  color: var(--foreground-subtle);
+}

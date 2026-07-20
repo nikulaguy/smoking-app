@@ -1,0 +1,33 @@
+/**
+ * tool-tile — tuile d'action d'une grille d'outils.
+ * Coque : container-field size=tile. Source Figma : tool-tile (node 91:1420).
+ */
+.tile {
+  cursor: pointer;
+  font: var(--text-caption-1);
+  color: var(--foreground-default);
+  background: var(--background-default);
+
+  &:disabled {
+    cursor: default;
+    color: var(--foreground-disabled);
+    border-color: var(--border-interactive-disabled);
+    pointer-events: none;
+
+    & .icon {
+      opacity: 0.4;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}
+
+.icon {
+  display: grid;
+  place-content: center;
+  width: 44px;
+  height: 44px;
+}

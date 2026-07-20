@@ -1,0 +1,45 @@
+/**
+ * tab-bar — navigation principale, fixe en bas des écrans connectés.
+ * Source Figma : tab-bar (node 67:1094).
+ */
+/* Le composant ne se positionne pas lui-même : la fixation en bas d'écran
+   est la responsabilité du layout hôte (cf. AppLayout .dock). */
+.root {
+  display: flex;
+  background: var(--background-default);
+  border-top: 1px solid var(--border-subtle);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.item {
+  flex: 1;
+  display: grid;
+  justify-items: center;
+  gap: var(--spacing-base-2);
+  padding: var(--spacing-base-3) 0;
+  font: var(--text-caption-1);
+  color: var(--foreground-subtle);
+  text-decoration: none;
+
+  /* indicateur décoratif au-dessus du libellé */
+  &::before {
+    content: "";
+    width: 24px;
+    height: 3px;
+    border-radius: 2px;
+    background: transparent;
+  }
+
+  &[aria-current="page"] {
+    color: var(--brand-primary);
+
+    &::before {
+      background: var(--brand-primary);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: -2px;
+  }
+}

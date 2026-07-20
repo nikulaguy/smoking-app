@@ -1,0 +1,81 @@
+/*
+ * Détail du défi du jour : hero immersif court + contenu, plein écran
+ * (hors tab bar). Déclaratif de confiance : jamais de preuve demandée,
+ * le refus est sans pénalité (doc 06).
+ */
+.screen {
+  min-height: 100dvh;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-default);
+}
+
+.eyebrow {
+  margin: 0;
+  font: var(--text-caption-1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--content-on-immersive-subtle);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-h2);
+  color: var(--content-on-immersive);
+}
+
+.content {
+  flex: 1;
+  display: grid;
+  align-content: start;
+  gap: var(--spacing-base-6);
+  padding: var(--spacing-base-6) var(--spacing-base-4) 0;
+}
+
+.why {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-subtle);
+}
+
+.panel {
+  display: grid;
+  gap: var(--spacing-base-2);
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-subtle);
+}
+
+.panelTitle {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+}
+
+.panelText {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-subtle);
+}
+
+.tip {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+.ctaZone {
+  display: grid;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-4) var(--spacing-base-4)
+    calc(var(--spacing-base-10) + env(safe-area-inset-bottom));
+}
+
+.doneNote {
+  margin: 0;
+  text-align: center;
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+}

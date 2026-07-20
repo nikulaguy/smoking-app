@@ -1,0 +1,60 @@
+/**
+ * likert-scale — échelle de réponse graduée à valeurs discrètes.
+ * Chaque pastille = input radio natif. Source Figma : likert-scale (27:309).
+ */
+.root {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--spacing-base-2);
+}
+
+.legend {
+  padding: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+  margin-bottom: var(--spacing-base-3);
+}
+
+.row {
+  display: flex;
+  gap: var(--spacing-base-1);
+}
+
+/* pastille : coque container-field compact, portée par le label */
+.cell {
+  flex: 1;
+  cursor: pointer;
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+
+  /* chiffre accentué quand coché (la sélection ne repose pas que sur la couleur) */
+  &:has(input:checked) {
+    color: var(--brand-primary);
+    font-weight: 600;
+  }
+}
+
+/* input caché visuellement, focus visible reporté sur la pastille */
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.anchors {
+  display: flex;
+  justify-content: space-between;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+.error {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-error);
+}

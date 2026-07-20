@@ -1,0 +1,82 @@
+/**
+ * switch — interrupteur marche/arrêt d'un réglage global.
+ * Checkbox native role="switch", piste 44×24 + curseur 18 en ::before.
+ * Source Figma : switch (composant custom du fichier Smoking-App).
+ */
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base-3);
+  cursor: pointer;
+
+  &:has(input:disabled) {
+    cursor: default;
+  }
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: var(--spacing-base-1);
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+}
+
+.title {
+  display: block;
+}
+
+.description {
+  display: block;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+/* Piste : off = contour neutre, on = fond accent. Curseur en ::before. */
+.input {
+  appearance: none;
+  flex: none;
+  width: 44px;
+  height: 24px;
+  margin: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--background-default);
+  display: grid;
+  align-content: center;
+  transition: background-color 120ms ease, border-color 120ms ease;
+
+  &::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    margin-left: 2px;
+    border-radius: 50%;
+    background: var(--border-default);
+    transition: transform 120ms ease-in-out, background-color 120ms ease;
+  }
+
+  &:checked {
+    background: var(--background-accent);
+    border-color: var(--background-accent);
+
+    &::before {
+      background: var(--foreground-default-invert);
+      transform: translateX(20px);
+    }
+  }
+
+  &:disabled {
+    border-color: var(--border-interactive-disabled);
+
+    &::before {
+      background: var(--border-interactive-disabled);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}

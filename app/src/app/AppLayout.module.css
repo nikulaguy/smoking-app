@@ -1,0 +1,72 @@
+/**
+ * Coque de l'app connectée : contenu défilant + dock fixe (SOS + tab bar).
+ * Mobile-first, gère les safe-areas iOS (encoche, home indicator).
+ */
+.shell {
+  min-height: 100dvh;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  background: var(--background-default);
+}
+
+.scroll {
+  /* padding-bas = hauteur réelle du dock, mesurée et appliquée en inline
+     (voir AppLayout.tsx). 148px = repli avant mesure / si JS indispo. */
+  padding-bottom: 148px;
+}
+
+.dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  /* Isolé des View Transitions : pendant un changement d'écran, seul le
+     contenu transite — le dock (SOS + tab bar) reste parfaitement immobile
+     (son groupe est neutralisé dans index.css). */
+  view-transition-name: dock;
+  display: grid;
+  justify-items: stretch;
+}
+
+.dockInner {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  background: var(--background-default);
+}
+
+.tabItem {
+  flex: 1;
+  display: grid;
+  justify-items: center;
+  gap: var(--spacing-base-2);
+  /* Padding symétrique. La safe-area du home indicator est gérée une seule
+     fois par le composant TabBar (.root padding-bottom), pas ici, sinon
+     l'inset est compté deux fois et la barre remonte trop haut. */
+  padding: var(--spacing-base-3) 0;
+  font: var(--text-caption-1);
+  color: var(--foreground-subtle);
+  text-decoration: none;
+
+  &::before {
+    content: "";
+    width: 24px;
+    height: 3px;
+    border-radius: 2px;
+    background: transparent;
+  }
+
+  &[aria-current="page"] {
+    color: var(--brand-primary);
+
+    &::before {
+      background: var(--brand-primary);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: -2px;
+  }
+}

@@ -1,0 +1,775 @@
+/**
+ * Illustrations animées en boucle (écrans de jalon). Chaque scénario est un
+ * cycle unique : toutes les pièces d'une illustration partagent la MÊME durée
+ * d'animation, la chorégraphie se joue dans les offsets de keyframes (jamais
+ * de delay positif : le cycle reste synchronisé à l'infini). Uniquement
+ * transform/opacity (+ fill ponctuel sur l'ampoule) ; tout est figé par
+ * prefers-reduced-motion.
+ */
+
+/* Les scénarios débordent du cadre de l'illustration (fusée qui décolle,
+   couvercle qui saute, confettis) : le SVG ne clippe pas, la limite
+   devient l'écran lui-même. */
+.rocket,
+.idea,
+.thumb,
+.trophy,
+.medal {
+  overflow: visible;
+}
+
+/* ===================== Fusée (cycle 5 s) ===================== */
+/* Décollage en diagonale (la fusée pointe à 45°), disparition, retour
+   par le bas-gauche avec un dépassement-rebond, repos. */
+.rocketShip {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rocketFly 5s ease-in-out infinite;
+}
+
+@keyframes rocketFly {
+  0%,
+  10% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  /* recul d'anticipation */
+  14% {
+    transform: translate(-2px, 2px);
+    opacity: 1;
+  }
+  /* décollage plein gaz */
+  32% {
+    transform: translate(52px, -52px);
+    opacity: 1;
+  }
+  34% {
+    transform: translate(58px, -58px);
+    opacity: 0;
+  }
+  /* réapparition en bas-gauche */
+  38% {
+    transform: translate(-36px, 36px);
+    opacity: 0;
+  }
+  42% {
+    transform: translate(-30px, 30px);
+    opacity: 1;
+  }
+  /* atterrissage avec dépassement puis rebond */
+  58% {
+    transform: translate(5px, -5px);
+  }
+  66% {
+    transform: translate(-2px, 2px);
+  }
+  72%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+/* Flamme : pulsation rapide du réacteur, accrochée à la tuyère. */
+.rocketFlame {
+  transform-box: fill-box;
+  transform-origin: top right;
+  animation: rocketFlame 0.42s ease-in-out infinite alternate;
+}
+
+@keyframes rocketFlame {
+  from {
+    transform: scale(0.94);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+/* Traînées au sol : s'activent pendant le vol. */
+.rocketLines {
+  animation: rocketLines 5s ease-in-out infinite;
+}
+
+@keyframes rocketLines {
+  0%,
+  10% {
+    opacity: 0.35;
+  }
+  18% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0.4;
+  }
+  32% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 0.5;
+  }
+  56% {
+    opacity: 0.9;
+  }
+  72%,
+  100% {
+    opacity: 0.35;
+  }
+}
+
+/* Fumée : bouffées au décollage (14-40 %) et à l'atterrissage (52-72 %). */
+.smokeA,
+.smokeB,
+.smokeC {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+}
+
+.smokeA {
+  animation: smokeA 5s ease-out infinite;
+}
+.smokeB {
+  animation: smokeB 5s ease-out infinite;
+}
+.smokeC {
+  animation: smokeC 5s ease-out infinite;
+}
+
+@keyframes smokeA {
+  0%,
+  13% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  18% {
+    opacity: 0.9;
+    transform: translate(-3px, 3px) scale(1);
+  }
+  36% {
+    opacity: 0;
+    transform: translate(-10px, 9px) scale(1.7);
+  }
+  55% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  60% {
+    opacity: 0.7;
+    transform: translate(-2px, 2px) scale(0.9);
+  }
+  74%,
+  100% {
+    opacity: 0;
+    transform: translate(-8px, 6px) scale(1.5);
+  }
+}
+
+@keyframes smokeB {
+  0%,
+  17% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  22% {
+    opacity: 0.8;
+    transform: translate(-4px, 2px) scale(1);
+  }
+  40% {
+    opacity: 0;
+    transform: translate(-12px, 6px) scale(1.6);
+  }
+  58% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  63% {
+    opacity: 0.6;
+    transform: translate(-3px, 1px) scale(0.9);
+  }
+  78%,
+  100% {
+    opacity: 0;
+    transform: translate(-9px, 4px) scale(1.4);
+  }
+}
+
+@keyframes smokeC {
+  0%,
+  20% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  25% {
+    opacity: 0.8;
+    transform: translate(2px, 4px) scale(1);
+  }
+  43% {
+    opacity: 0;
+    transform: translate(6px, 10px) scale(1.6);
+  }
+  61% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  66% {
+    opacity: 0.6;
+    transform: translate(2px, 3px) scale(0.9);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: translate(5px, 8px) scale(1.4);
+  }
+}
+
+/* ===================== Ampoule (cycle 6 s) ===================== */
+/* S'allume en scintillant, brille, s'éteint, se rallume avant de boucler. */
+.ideaGlass {
+  fill: #fff;
+  animation: ideaGlass 6s linear infinite;
+}
+
+@keyframes ideaGlass {
+  0%,
+  7% {
+    fill: #fff;
+  }
+  /* allumage qui scintille */
+  9% {
+    fill: #ffe9a3;
+  }
+  11% {
+    fill: #fff;
+  }
+  13% {
+    fill: #ffe9a3;
+  }
+  15% {
+    fill: #fffbe9;
+  }
+  17%,
+  55% {
+    fill: #ffe28a;
+  }
+  /* extinction */
+  58% {
+    fill: #fff4cf;
+  }
+  61%,
+  78% {
+    fill: #fff;
+  }
+  /* rallumage franc */
+  81%,
+  100% {
+    fill: #ffe28a;
+  }
+}
+
+.ideaGlow {
+  fill: #f5d96b;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ideaGlow 6s linear infinite;
+}
+
+@keyframes ideaGlow {
+  0%,
+  8% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  10% {
+    opacity: 0.4;
+  }
+  12% {
+    opacity: 0.08;
+  }
+  14% {
+    opacity: 0.42;
+  }
+  17% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  36% {
+    opacity: 0.62;
+    transform: scale(1.06);
+  }
+  55% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  61%,
+  78% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  81%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1.02);
+  }
+}
+
+.ideaRays {
+  stroke: #d9a916;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ideaRays 6s ease-out infinite;
+}
+
+@keyframes ideaRays {
+  0%,
+  13% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  17% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0.75;
+  }
+  55% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  61%,
+  78% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  84%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===================== Pouce (cycle 5 s) ===================== */
+/* La main monte en scène pouce couché, le lève d'un coup de ressort
+   (dépassement puis rebond), savoure, puis s'éclipse. */
+.thumbHand {
+  transform-box: fill-box;
+  transform-origin: 50% 90%;
+  animation: thumbHand 5s ease-in-out infinite;
+}
+
+@keyframes thumbHand {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) rotate(-55deg);
+  }
+  /* la main arrive, pouce encore couché */
+  12%,
+  22% {
+    opacity: 1;
+    transform: translateY(0) rotate(-55deg);
+  }
+  /* coup de ressort : dépasse la verticale puis rebondit */
+  30% {
+    transform: translateY(0) rotate(9deg);
+  }
+  36% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  41% {
+    transform: translateY(0) rotate(2deg);
+  }
+  46% {
+    transform: translateY(0) rotate(0deg);
+  }
+  /* petit bond de satisfaction */
+  58% {
+    transform: translateY(-3px) rotate(0deg);
+  }
+  64%,
+  86% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  /* sortie */
+  96%,
+  100% {
+    opacity: 0;
+    transform: translateY(24px) rotate(-55deg);
+  }
+}
+
+/* ===================== Trophée (cycle 5.5 s) ===================== */
+.trophyCup {
+  transform-box: fill-box;
+  transform-origin: 50% 90%;
+  animation: trophyShake 5.5s ease-in-out infinite;
+}
+
+@keyframes trophyShake {
+  0%,
+  8% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-1.6deg);
+  }
+  12% {
+    transform: rotate(1.6deg);
+  }
+  14% {
+    transform: rotate(-2deg);
+  }
+  16% {
+    transform: rotate(2deg);
+  }
+  18% {
+    transform: rotate(-1.2deg);
+  }
+  20% {
+    transform: rotate(1.2deg);
+  }
+  22% {
+    transform: rotate(0deg);
+  }
+  26% {
+    transform: translateY(1.5px);
+  }
+  30%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+/* Couvercle : sauté par la pression, retombe et rebondit. */
+.trophyLid {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: trophyLid 5.5s ease-in-out infinite;
+}
+
+@keyframes trophyLid {
+  0%,
+  22% {
+    transform: translateY(0) rotate(0deg);
+  }
+  27% {
+    transform: translateY(-15px) rotate(8deg);
+  }
+  31% {
+    transform: translateY(-11px) rotate(-4deg);
+  }
+  37% {
+    transform: translateY(0) rotate(0deg);
+  }
+  41% {
+    transform: translateY(-3px) rotate(1.5deg);
+  }
+  45%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* Confettis : jaillissent à l'ouverture, retombent en tournant. */
+.confetti1,
+.confetti2,
+.confetti3,
+.confetti4,
+.confetti5,
+.confetti6 {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+}
+
+.confetti1 {
+  animation: confettiL 5.5s ease-out infinite;
+}
+.confetti2 {
+  animation: confettiR 5.5s ease-out infinite;
+}
+.confetti3 {
+  animation: confettiFarL 5.5s ease-out infinite;
+}
+.confetti4 {
+  animation: confettiFarR 5.5s ease-out infinite;
+}
+.confetti5 {
+  animation: confettiUp 5.5s ease-out infinite;
+}
+.confetti6 {
+  animation: confettiMid 5.5s ease-out infinite;
+}
+
+@keyframes confettiL {
+  0%,
+  23% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  26% {
+    opacity: 1;
+  }
+  38% {
+    opacity: 1;
+    transform: translate(-13px, -26px) rotate(-160deg);
+  }
+  56% {
+    opacity: 0;
+    transform: translate(-20px, 4px) rotate(-320deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes confettiR {
+  0%,
+  24% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  27% {
+    opacity: 1;
+  }
+  39% {
+    opacity: 1;
+    transform: translate(14px, -22px) rotate(150deg);
+  }
+  58% {
+    opacity: 0;
+    transform: translate(22px, 8px) rotate(300deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes confettiFarL {
+  0%,
+  25% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  28% {
+    opacity: 1;
+  }
+  41% {
+    opacity: 1;
+    transform: translate(-24px, -16px);
+  }
+  60% {
+    opacity: 0;
+    transform: translate(-34px, 12px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes confettiFarR {
+  0%,
+  23% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  26% {
+    opacity: 1;
+  }
+  37% {
+    opacity: 1;
+    transform: translate(25px, -14px);
+  }
+  56% {
+    opacity: 0;
+    transform: translate(36px, 14px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes confettiUp {
+  0%,
+  24% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  27% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+    transform: translate(3px, -32px) rotate(200deg);
+  }
+  59% {
+    opacity: 0;
+    transform: translate(6px, -6px) rotate(380deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes confettiMid {
+  0%,
+  26% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  29% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 1;
+    transform: translate(-6px, -20px);
+  }
+  61% {
+    opacity: 0;
+    transform: translate(-10px, 6px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+
+/* ===================== Médaille (cycle 7 s + vent continu) ===================== */
+/* Le groupe gère le déroulé-rideau (scaleY depuis le point d'attache),
+   les sous-groupes portent le vent (balancements déphasés, périodes
+   premières entre elles : jamais la même vague deux fois). */
+.medalRibbons {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: ribbonsReveal 7s ease-in-out infinite;
+}
+
+@keyframes ribbonsReveal {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.05);
+  }
+  4% {
+    opacity: 1;
+  }
+  /* déroulé avec léger dépassement, comme un rideau qu'on lâche */
+  14% {
+    transform: scaleY(1.06);
+  }
+  20% {
+    transform: scaleY(0.98);
+  }
+  25%,
+  90% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  /* repli avant de boucler */
+  97%,
+  100% {
+    opacity: 0;
+    transform: scaleY(0.05);
+  }
+}
+
+.medalRibbonL {
+  transform-box: fill-box;
+  transform-origin: 85% 10%;
+  animation: ribbonSwayL 3.1s ease-in-out infinite alternate;
+}
+
+.medalRibbonR {
+  transform-box: fill-box;
+  transform-origin: 15% 10%;
+  animation: ribbonSwayR 2.3s ease-in-out infinite alternate;
+}
+
+@keyframes ribbonSwayL {
+  from {
+    transform: rotate(-2.4deg) skewX(-1.5deg);
+  }
+  to {
+    transform: rotate(1.6deg) skewX(1deg);
+  }
+}
+
+@keyframes ribbonSwayR {
+  from {
+    transform: rotate(2.2deg) skewX(1.5deg);
+  }
+  to {
+    transform: rotate(-1.6deg) skewX(-1deg);
+  }
+}
+
+/* Disque suspendu : balancement pendulaire très doux. */
+.medalDisc {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: medalSway 5s ease-in-out infinite alternate;
+}
+
+@keyframes medalSway {
+  from {
+    transform: rotate(-1.4deg);
+  }
+  to {
+    transform: rotate(1.4deg);
+  }
+}
+
+/* ===================== Reduced motion ===================== */
+@media (prefers-reduced-motion: reduce) {
+  .rocketShip,
+  .rocketFlame,
+  .rocketLines,
+  .smokeA,
+  .smokeB,
+  .smokeC,
+  .ideaGlass,
+  .ideaGlow,
+  .ideaRays,
+  .thumbHand,
+  .trophyCup,
+  .trophyLid,
+  .confetti1,
+  .confetti2,
+  .confetti3,
+  .confetti4,
+  .confetti5,
+  .confetti6,
+  .medalRibbons,
+  .medalRibbonL,
+  .medalRibbonR,
+  .medalDisc {
+    animation: none;
+  }
+
+  /* états au repos lisibles sans animation */
+  .smokeA,
+  .smokeB,
+  .smokeC {
+    opacity: 0;
+  }
+
+  .ideaGlass {
+    fill: #ffe28a;
+  }
+
+  .ideaGlow {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  .ideaRays {
+    opacity: 1;
+  }
+}

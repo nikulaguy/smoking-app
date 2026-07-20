@@ -1,0 +1,99 @@
+/*
+ * Sur-couche de déclaration de glissade. Fond blanc, calme : aucun rouge,
+ * aucun signal d'alerte (règle transverse des états sensibles, doc 06).
+ */
+.dialog {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: var(--background-default);
+  color: var(--foreground-default);
+
+  &::backdrop {
+    background: var(--surface-immersive);
+    opacity: 0.4;
+  }
+
+  &[open] {
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+}
+
+.content {
+  display: grid;
+  align-content: center;
+  gap: var(--spacing-base-6);
+  padding: var(--spacing-base-14) var(--spacing-base-4) var(--spacing-base-6);
+}
+
+.eyebrow {
+  margin: 0;
+  font: var(--text-caption-1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-h3);
+}
+
+.helper {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-subtle);
+}
+
+.options {
+  display: grid;
+  gap: var(--spacing-base-3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0 0 var(--spacing-base-3);
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+}
+
+.support {
+  margin: 0;
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-subtle);
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+}
+
+.footer {
+  display: grid;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-4) var(--spacing-base-4)
+    calc(var(--spacing-base-10) + env(safe-area-inset-bottom));
+}
+
+/* Aide humaine en chemin principal (« je refume régulièrement ») :
+   même géométrie et tokens que le Button primary, rendue par un lien. */
+.helpCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-base-3) var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-accent);
+  color: var(--foreground-default-invert);
+  font: var(--text-caption-1);
+  text-decoration: none;
+
+  &:hover {
+    background: var(--background-accent-hover);
+  }
+}

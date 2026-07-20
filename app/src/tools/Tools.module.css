@@ -1,0 +1,223 @@
+/**
+ * Écrans de détail des outils anti-envie. Famille visuelle commune :
+ * fond apaisant, sortie toujours possible en bas, formats courts
+ * (l'envie dure ~3 minutes, l'outil doit tenir dedans).
+ */
+.screen {
+  min-height: 100dvh;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-subtle);
+}
+
+.content {
+  flex: 1;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: var(--spacing-base-6);
+  padding: calc(var(--spacing-base-10) + env(safe-area-inset-top))
+    var(--spacing-base-4) var(--spacing-base-6);
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  font: var(--text-caption-1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-h3);
+  color: var(--foreground-default);
+}
+
+.helper {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-subtle);
+}
+
+.caption {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+.ctaZone {
+  display: grid;
+  gap: var(--spacing-base-3);
+  justify-items: stretch;
+  padding: var(--spacing-base-4) var(--spacing-base-4)
+    calc(var(--spacing-base-10) + env(safe-area-inset-bottom));
+}
+
+/* ---- respiration ---- */
+.breath {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--background-default);
+  border: 2px solid var(--border-accent);
+  display: grid;
+  place-content: center;
+  animation: breathe 14s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  /* cycle 4-4-6 : inspire (0→4 s), bloque (4→8 s), souffle (8→14 s) */
+  0% { transform: scale(0.8); }
+  28.6% { transform: scale(1); }
+  57.1% { transform: scale(1); }
+  100% { transform: scale(0.8); }
+}
+
+.breathPhase {
+  font: var(--text-h4);
+  color: var(--brand-primary);
+}
+
+/* ---- mini-jeu ---- */
+.playArea {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  background: var(--background-default);
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  transition: transform 80ms ease;
+
+  &:active {
+    transform: scale(0.6);
+  }
+}
+
+.scoreRow {
+  display: flex;
+  gap: var(--spacing-base-3);
+  justify-content: center;
+}
+
+.chip {
+  padding: var(--spacing-base-2) var(--spacing-base-3);
+  border-radius: var(--radius-lg);
+  background: var(--game-level);
+  color: var(--content-on-level);
+  font: var(--text-caption-1);
+}
+
+.chipMuted {
+  background: var(--background-default);
+  color: var(--foreground-default);
+}
+
+/* ---- audio / vidéo ---- */
+.media {
+  width: 100%;
+  display: grid;
+  gap: var(--spacing-base-3);
+}
+
+.artwork {
+  display: grid;
+  place-content: center;
+  height: 160px;
+  border-radius: var(--radius-lg);
+  background: var(--background-default);
+  font-size: 64px;
+}
+
+/* Vidéo : façade cliquable (vignette) puis iframe, en 16:9 responsive. */
+.videoFrame,
+.videoFacade {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.videoFrame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.videoFacade {
+  position: relative;
+  display: grid;
+  place-content: center;
+  background-color: var(--background-default);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.playIcon {
+  display: grid;
+  place-content: center;
+  width: 56px;
+  height: 56px;
+  padding-left: 4px;
+  border-radius: var(--radius-full);
+  background: var(--surface-immersive);
+  color: var(--content-on-immersive);
+  font-size: 22px;
+}
+
+/* ---- blague ---- */
+.joke {
+  margin: 0;
+  font: var(--text-subtitle);
+  color: var(--foreground-default);
+  white-space: pre-line;
+}
+
+/* ---- raisons ---- */
+.panels {
+  width: 100%;
+  display: grid;
+  gap: var(--spacing-base-3);
+  text-align: left;
+}
+
+.panel {
+  display: grid;
+  gap: var(--spacing-base-2);
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-default);
+}
+
+.panelTitle {
+  margin: 0;
+  font: var(--text-h5);
+  color: var(--foreground-default);
+}
+
+.panelText {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-subtle);
+}
+
+.quote {
+  margin: 0;
+  font: var(--text-subtitle);
+  font-style: italic;
+  color: var(--foreground-default);
+}

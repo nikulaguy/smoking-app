@@ -1,0 +1,120 @@
+.screen {
+  min-height: 100lvh;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-default);
+}
+
+.content {
+  flex: 1;
+  display: grid;
+  align-content: start;
+  gap: var(--spacing-base-6);
+  padding: calc(var(--spacing-base-10) + env(safe-area-inset-top))
+    var(--spacing-base-4) var(--spacing-base-6);
+}
+
+/* Texte centré, mais contenu TOP-aligné : le Retour reste en haut à gauche,
+   le CTA en bas, le contenu part du haut (règle transverse, maquette 28:299). */
+.centerText {
+  justify-items: center;
+  text-align: center;
+}
+
+/* La nav de flux occupe toute la largeur même dans un contenu centré. */
+.centerText > nav {
+  justify-self: stretch;
+}
+
+/* Illustration du chapitre (110 px, décorative). */
+.illu {
+  margin-top: var(--spacing-base-6);
+}
+
+/* Titre de chapitre (H2 de la maquette 28:299). */
+.titleXl {
+  margin: 0;
+  font: var(--text-h2);
+  letter-spacing: -0.4px;
+  color: var(--foreground-default);
+}
+
+.subtitle {
+  margin: 0;
+  font: var(--text-subtitle);
+  color: var(--foreground-subtle);
+}
+
+/* Carte de synthèse du feedback (texte à gauche dans la carte). */
+.recapCard {
+  width: 100%;
+  text-align: left;
+  margin-top: var(--spacing-base-4);
+}
+
+.qblock {
+  display: grid;
+  gap: var(--spacing-base-3);
+}
+
+.eyebrow {
+  margin: 0;
+  font: var(--text-caption-1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-h3);
+  color: var(--foreground-default);
+}
+
+.statement {
+  margin: 0;
+  font: var(--text-h4);
+  color: var(--foreground-default);
+}
+
+.helper {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-subtle);
+}
+
+.options {
+  display: grid;
+  gap: var(--spacing-base-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-base-3);
+}
+
+.counter {
+  margin: var(--spacing-base-2) 0 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+.ctaZone {
+  display: grid;
+  gap: var(--spacing-base-3);
+  justify-items: center;
+  padding: var(--spacing-base-6) var(--spacing-base-4)
+    calc(var(--spacing-base-10) + env(safe-area-inset-bottom));
+}
+
+.link {
+  border: 0;
+  background: none;
+  padding: var(--spacing-base-2);
+  font: var(--text-caption-1);
+  color: var(--foreground-interactive);
+  cursor: pointer;
+}

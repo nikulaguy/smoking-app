@@ -1,0 +1,28 @@
+/**
+ * stat-metric — métrique valeur + libellé.
+ * Source Figma : stat-metric (node 67:1116).
+ * Révision 2026-07-18 : éléments centrés dans leur frame, textes centrés.
+ */
+.root {
+  display: grid;
+  gap: var(--spacing-base-1);
+  justify-items: center;
+  text-align: center;
+}
+
+.value {
+  color: var(--foreground-default);
+}
+
+.hero .value {
+  font: var(--text-h2);
+}
+
+.compact .value {
+  font: var(--text-h3);
+}
+
+.label {
+  font: var(--text-caption-1);
+  color: var(--foreground-subtle);
+}

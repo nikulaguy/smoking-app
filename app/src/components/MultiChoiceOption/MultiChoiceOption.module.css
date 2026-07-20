@@ -1,0 +1,131 @@
+/**
+ * multi-choice-option — option a sélection multiple (checkbox natif).
+ * Case carrée = multi ; rond = choix unique. Coque : container-field.
+ * Source Figma : multi-choice-option (36:572) + nested multi-choice-content
+ * (316:2793). Trois contenus : case + intitulé / + description / + flèche
+ * de détail (showLink), la flèche vit DANS la coque en fin de rangée.
+ * La hauteur suit le contenu (hug), la case reste centrée verticalement.
+ */
+
+/* Zone cochable : le label occupe la rangée (la coque container-field est
+   portée par le conteneur parent, qui aligne aussi la flèche de détail). */
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base-3);
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+
+  &:has(input:disabled) {
+    cursor: default;
+    color: var(--foreground-disabled);
+  }
+
+  /* état erreur : textes et case reprennent la teinte error (316:2819) */
+  &:has(input[aria-invalid="true"]) {
+    color: var(--foreground-error);
+  }
+}
+
+/* Flèche lien ↗ vers l'écran de détail (bouton frère du label, dans la
+   coque). 24px visuels, zone de toucher élargie sans bouger la mise en page. */
+.detail {
+  flex: none;
+  display: grid;
+  place-content: center;
+  width: 24px;
+  height: 24px;
+  box-sizing: content-box;
+  padding: var(--spacing-base-2);
+  margin: calc(-1 * var(--spacing-base-2));
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  color: var(--foreground-default);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}
+
+/* Case : boîte 20 bordée, cochée = carré plein (atoms/checkbox du DS). */
+.input {
+  appearance: none;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-field);
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    background: var(--background-accent-active);
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 100ms ease-in-out;
+  }
+
+  &:checked {
+    background: var(--background-fade-hover);
+    border-color: var(--border-interactive-active);
+
+    &::before {
+      transform: scale(1);
+    }
+  }
+
+  &:disabled {
+    border-color: var(--border-interactive-disabled);
+
+    &:checked {
+      background: var(--background-default);
+    }
+
+    &::before {
+      background: var(--border-interactive-disabled);
+    }
+  }
+
+  &[aria-invalid="true"] {
+    border-color: var(--border-error);
+  }
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: var(--spacing-base-1);
+}
+
+/* Intitulé principal (hérite de la typo body-2 de .option). */
+.title {
+  display: block;
+}
+
+/* Petite description secondaire optionnelle. */
+.description {
+  display: block;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+
+  /* les états de l'option teintent aussi la description */
+  .option:has(input:disabled) & {
+    color: var(--foreground-disabled);
+  }
+
+  .option:has(input[aria-invalid="true"]) & {
+    color: var(--foreground-error);
+  }
+}

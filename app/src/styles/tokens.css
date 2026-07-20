@@ -1,0 +1,210 @@
+/**
+ * FICHIER GÉNÉRÉ — ne pas éditer à la main.
+ * Source : design/figma-tokens.json (instantané des variables Figma,
+ * 2026-07-14) + scripts/generate-tokens.mjs. Régénérer : npm run tokens.
+ * Nommage aligné sur les variables Figma (slash → tiret).
+ */
+:root {
+  /* pilote le rendu des contrôles natifs (calendrier des input date,
+     scrollbars, autofill) : sans lui, leurs icônes restent sombres en dark */
+  color-scheme: light;
+
+  /* brand — Foundation - Colors Styles · collection Semantic (mode light) */
+  --brand-primary: #004c61;
+  --brand-secondary: #00b5c0;
+  --brand-complementary: #00778f;
+
+  /* background */
+  --background-default: #ffffff;
+  --background-default-alt: #f9fafb;
+  --background-subtle: #e9f9f9;
+  --background-accent: #004c61;
+  --background-accent-hover: #00778f;
+  --background-accent-active: #00778f;
+  --background-accent-disabled: #62627f;
+  --background-fade: #004c6100;
+  --background-fade-hover: #004c610a;
+  --background-error: #fef2f2;
+  --background-warning: #fffbeb;
+  --background-success: #f0fdf4;
+  --background-info: #eff6ff;
+
+  /* foreground */
+  --foreground-default: #3c3c56;
+  --foreground-default-invert: #ffffff;
+  --foreground-subtle: #62627f;
+  --foreground-disabled: #a5a4bc;
+  --foreground-interactive: #004c61;
+  --foreground-interactive-hover: #00778f;
+  --foreground-interactive-active: #00778f;
+  --foreground-interactive-disabled: #a5a4bc;
+  --foreground-alternative: #00b5c0;
+  --foreground-error: #991b1b;
+  --foreground-warning: #92400e;
+  --foreground-success: #166534;
+  --foreground-info: #1e3a8a;
+
+  /* border */
+  --border-default: #3c3c56;
+  --border-subtle: #ccccdb;
+  --border-interactive: #004c61;
+  --border-interactive-hover: #00778f;
+  --border-interactive-active: #00778f;
+  --border-interactive-disabled: #a5a4bc;
+  --border-accent: #65d9d7;
+  --border-error: #991b1b;
+  --border-warning: #d97706;
+  --border-success: #16a34a;
+  --border-info: #2563eb;
+
+  /* base — fonds des badges */
+  --base-default-invert: #004c61;
+  --base-alternative-1: #fce483;
+  --base-alternative-2: #e9f9f9;
+  --base-alternative-3: #ffd1da;
+  --base-alternative-4: #e7e7ee;
+  --base-alternative-5: #c5c6f3;
+
+  /* App Semantic (local Smoking-App — identité « Ligne de crête ») */
+  --surface-immersive: #004c61;
+  --content-on-immersive: #ffffff;
+  --content-on-immersive-subtle: #9ae4e3;
+  --game-level: #ffde44;
+  --content-on-level: #282839;
+  --game-progress-done: #04c6cd;
+  --game-progress-todo: #00778f;
+
+  /* spacing — Foundation - Radius & Spacings · collection Semantic */
+  --spacing-base-1: 4px;
+  --spacing-base-2: 8px;
+  --spacing-base-3: 12px;
+  --spacing-base-4: 16px;
+  --spacing-base-5: 20px;
+  --spacing-base-6: 24px;
+  --spacing-base-7: 28px;
+  --spacing-base-8: 32px;
+  --spacing-base-9: 36px;
+  --spacing-base-10: 40px;
+  --spacing-base-11: 44px;
+  --spacing-base-12: 48px;
+  --spacing-base-14: 56px;
+  --spacing-base-16: 64px;
+  --spacing-base-24: 96px;
+
+  /* radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  --radius-field: var(--radius-md); /* alias historique des champs */
+
+  /* conventions locales de l'app */
+  --shadow-floating: 0 4px 16px rgb(0 0 0 / 0.18); /* élévation du dock SOS (drop-shadow des maquettes) */
+  --layout-max-width: 480px; /* largeur max du flux mobile sur grand écran */
+
+  /* typography — Foundation - Website Text Styles · collection Semantic + interlignes Typography Web */
+  --font-family: "Reddit Sans", system-ui, -apple-system, sans-serif;
+  --text-h1: 500 48px/1.4 var(--font-family);
+  --text-h2: 500 40px/1.2 var(--font-family);
+  --text-h3: 500 32px/1.2 var(--font-family);
+  --text-h4: 600 24px/1.4 var(--font-family);
+  --text-h5: 700 20px/1.4 var(--font-family);
+  --text-h6: 700 18px/1.4 var(--font-family);
+  --text-subtitle: 400 20px/1.45 var(--font-family);
+  --text-body-1: 400 18px/1.65 var(--font-family);
+  --text-body-2: 400 16px/1.6 var(--font-family);
+  --text-caption-1: 500 14px/1.5 var(--font-family);
+  --text-caption-2: 400 12px/1.4 var(--font-family);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  /* Foundation - Colors Styles · collection Semantic (mode dark) */
+  --brand-primary: #ffffff;
+  --brand-secondary: #00b5c0;
+  --brand-complementary: #00b5c0;
+  --background-default: #282839;
+  --background-default-alt: #3c3c56;
+  --background-subtle: #004c61;
+  --background-accent: #e9f9f9;
+  --background-accent-hover: #d2f4f3;
+  --background-accent-active: #ffffff;
+  --background-accent-disabled: #ffffff;
+  --background-fade: #d2f4f300;
+  --background-fade-hover: #d2f4f314;
+  --background-error: #991b1b;
+  --background-warning: #92400e;
+  --background-success: #166534;
+  --background-info: #1e3a8a;
+  --foreground-default: #f9fafb;
+  --foreground-default-invert: #3c3c56;
+  --foreground-subtle: #ccccdb;
+  --foreground-disabled: #62627f;
+  --foreground-interactive: #e9f9f9;
+  --foreground-interactive-hover: #d2f4f3;
+  --foreground-interactive-active: #d2f4f3;
+  --foreground-interactive-disabled: #62627f;
+  --foreground-alternative: #00b5c0;
+  --foreground-error: #fecaca;
+  --foreground-warning: #fef3c7;
+  --foreground-success: #dcfce7;
+  --foreground-info: #dbeafe;
+  --border-default: #f9fafb;
+  --border-subtle: #62627f;
+  --border-interactive: #e9f9f9;
+  --border-interactive-hover: #d2f4f3;
+  --border-interactive-active: #d2f4f3;
+  --border-interactive-disabled: #62627f;
+  --border-accent: #65d9d7;
+  --border-error: #fecaca;
+  --border-warning: #fde68a;
+  --border-success: #bbf7d0;
+  --border-info: #bfdbfe;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+  --brand-primary: #ffffff;
+  --brand-secondary: #00b5c0;
+  --brand-complementary: #00b5c0;
+  --background-default: #282839;
+  --background-default-alt: #3c3c56;
+  --background-subtle: #004c61;
+  --background-accent: #e9f9f9;
+  --background-accent-hover: #d2f4f3;
+  --background-accent-active: #ffffff;
+  --background-accent-disabled: #ffffff;
+  --background-fade: #d2f4f300;
+  --background-fade-hover: #d2f4f314;
+  --background-error: #991b1b;
+  --background-warning: #92400e;
+  --background-success: #166534;
+  --background-info: #1e3a8a;
+  --foreground-default: #f9fafb;
+  --foreground-default-invert: #3c3c56;
+  --foreground-subtle: #ccccdb;
+  --foreground-disabled: #62627f;
+  --foreground-interactive: #e9f9f9;
+  --foreground-interactive-hover: #d2f4f3;
+  --foreground-interactive-active: #d2f4f3;
+  --foreground-interactive-disabled: #62627f;
+  --foreground-alternative: #00b5c0;
+  --foreground-error: #fecaca;
+  --foreground-warning: #fef3c7;
+  --foreground-success: #dcfce7;
+  --foreground-info: #dbeafe;
+  --border-default: #f9fafb;
+  --border-subtle: #62627f;
+  --border-interactive: #e9f9f9;
+  --border-interactive-hover: #d2f4f3;
+  --border-interactive-active: #d2f4f3;
+  --border-interactive-disabled: #62627f;
+  --border-accent: #65d9d7;
+  --border-error: #fecaca;
+  --border-warning: #fde68a;
+  --border-success: #bbf7d0;
+  --border-info: #bfdbfe;
+  }
+}

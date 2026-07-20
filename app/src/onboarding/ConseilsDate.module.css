@@ -1,0 +1,99 @@
+/**
+ * Page de contenu « bien choisir sa date d'arrêt » — sur-couche plein écran
+ * (maquette 363:2884 : surtitre, titre H2, intro, cartes badge/titre/texte,
+ * caption sources, CTA). Motion : entrée par le haut, sortie en sens inverse
+ * (même grammaire que les sélecteurs plein écran).
+ */
+.dialog {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: var(--background-default);
+  color: var(--foreground-default);
+  overflow: auto;
+  display: none;
+
+  &[open] {
+    display: block;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* L'état de base porte la transition de SORTIE : accélérée et un peu
+       plus courte, l'écran quitte franchement (une courbe décélérée ferait
+       traîner les derniers pixels puis « sauter » au display:none). */
+    & {
+      opacity: 1;
+      scale: 1;
+      translate: 0 -100%;
+      transition:
+        translate 220ms cubic-bezier(0.55, 0, 0.85, 0.36),
+        display 220ms allow-discrete,
+        overlay 220ms allow-discrete;
+    }
+
+    /* L'état ouvert porte la transition d'ENTRÉE : arrive vite, se pose
+       en douceur. */
+    &[open] {
+      translate: 0 0;
+      transition:
+        translate 280ms cubic-bezier(0.16, 1, 0.3, 1),
+        display 280ms allow-discrete,
+        overlay 280ms allow-discrete;
+
+      @starting-style {
+        translate: 0 -100%;
+      }
+    }
+  }
+}
+
+.screen {
+  display: grid;
+  min-height: 100%;
+  align-content: start;
+}
+
+.content {
+  display: grid;
+  gap: var(--spacing-base-6);
+  padding: calc(var(--spacing-base-14) + env(safe-area-inset-top))
+    var(--spacing-base-4) 0;
+}
+
+.eyebrow {
+  margin: 0;
+  font: var(--text-caption-1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-h2);
+  letter-spacing: -0.4px;
+  color: var(--foreground-default);
+}
+
+.intro {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-subtle);
+}
+
+.caption {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+.ctaZone {
+  display: grid;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-6) var(--spacing-base-4)
+    calc(var(--spacing-base-10) + env(safe-area-inset-bottom));
+}

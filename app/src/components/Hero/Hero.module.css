@@ -1,0 +1,162 @@
+/**
+ * Hero immersif « Ligne de crête » — composition partagée par tous les écrans.
+ * Garantit par construction : le texte est TOUJOURS au-dessus de l'illustration
+ * (couche content z-index 1 vs déco z-index 0) et ne chevauche JAMAIS la bande
+ * de crête (padding-bas = hauteur de crête + un cran), donc jamais le drapeau.
+ */
+/* Fond immersif adapté au moment de la journée (variables posées par
+   [data-sky] ci-dessous). VOLONTAIREMENT SOMBRE à toute heure : la « lumière »
+   vient de l'astre et du halo, pas d'un fond clair, ce qui garantit le contraste
+   du texte blanc / cyan pâle (A11Y). Transition douce entre phases. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    var(--sky-top, var(--surface-immersive)),
+    var(--sky-bottom, var(--surface-immersive))
+  );
+  transition: background 1.5s linear;
+  padding: calc(var(--spacing-base-10) + env(safe-area-inset-top))
+    var(--spacing-base-4)
+    calc(var(--crete-height) + var(--spacing-base-4));
+}
+
+/* Palettes par moment de la journée (contrastes vérifiés : fond ≤ ~0.09 de
+   luminance, texte blanc ≥ 7:1 et cyan pâle ≥ 4.8:1). */
+.hero[data-sky="day"] {
+  --sky-top: #00586c;
+  --sky-bottom: #003f51;
+  --glow-color: var(--game-level);
+  --mist-alpha: 0.14;
+}
+.hero[data-sky="dawn"] {
+  --sky-top: #0f4a57;
+  --sky-bottom: #0a3140;
+  --glow-color: #ffb27a;
+  --mist-alpha: 0.11;
+}
+.hero[data-sky="dusk"] {
+  --sky-top: #2c3350;
+  --sky-bottom: #10303b;
+  --glow-color: #ff9e7a;
+  --mist-alpha: 0.1;
+}
+.hero[data-sky="night"] {
+  --sky-top: #12152e;
+  --sky-bottom: #1b2340;
+  --glow-color: #8fb6d6;
+  --mist-alpha: 0.06;
+  /* couleur de la morsure du croissant de lune = ciel derrière l'astre */
+  --sky-bite: #171a33;
+}
+
+/* Halo de lumière depuis le coin de l'astre (haut droit). Couleur adaptée à
+   l'astre (chaud jour, cool nuit), intensité douce pour ne pas lever la
+   luminance sous le texte. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 85% at 88% 0%,
+    color-mix(in srgb, var(--glow-color, var(--game-level)) 18%, transparent),
+    transparent 60%
+  );
+  transition: background 1.5s linear;
+  /* La lumière de la scène respire en phase avec le halo lent de l'astre. */
+  animation: heroGlow 11s ease-in-out infinite;
+}
+
+@keyframes heroGlow {
+  0%,
+  100% {
+    opacity: 0.78;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Micro-brumes traversantes. Le flou est FIXE (jamais animé : rasterisé une
+   fois) ; seuls transform et opacity bougent — composité, coût nul. */
+.mist {
+  position: absolute;
+  z-index: 0;
+  left: -45%;
+  width: 65%;
+  height: 22%;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    closest-side,
+    rgb(255 255 255 / var(--mist-alpha, 0.06)),
+    transparent 72%
+  );
+  filter: blur(14px);
+  opacity: 0;
+  animation: mistDrift linear infinite;
+  will-change: transform, opacity;
+}
+
+.mist:nth-of-type(1) {
+  top: 16%;
+  animation-duration: 47s;
+  animation-delay: -12s;
+}
+
+.mist:nth-of-type(2) {
+  top: 40%;
+  width: 82%;
+  height: 15%;
+  animation-duration: 71s;
+  animation-delay: -40s;
+}
+
+.mist:nth-of-type(3) {
+  top: 62%;
+  animation-duration: 93s;
+  animation-delay: -70s;
+}
+
+@keyframes mistDrift {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(225%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .mist {
+    animation: none;
+  }
+
+  .mist {
+    opacity: 0;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--spacing-base-3);
+}
+
+.deco {
+  z-index: 0;
+}

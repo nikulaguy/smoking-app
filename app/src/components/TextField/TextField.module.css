@@ -1,0 +1,39 @@
+/**
+ * text-field — champ de saisie (reprise du composant input du DS).
+ */
+.root {
+  display: grid;
+  gap: var(--spacing-base-2);
+}
+
+.label {
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+}
+
+.input {
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+  background: none;
+  border: 0;
+  padding: 0;
+  width: 100%;
+
+  &::placeholder {
+    color: var(--foreground-subtle);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.caption {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+.error {
+  color: var(--foreground-error);
+}

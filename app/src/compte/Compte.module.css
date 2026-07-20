@@ -1,0 +1,311 @@
+/**
+ * Écrans Compte & données (doc 06) : la promesse RGPD concrétisée.
+ * Famille visuelle des sur-couches : plein écran, contenu en haut,
+ * actions en bas, jamais d'alarmisme (le seul rouge est la zone
+ * de suppression, bordée et séparée).
+ */
+.screen {
+  min-height: 100lvh;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-default);
+}
+
+.screenSubtle {
+  background: var(--background-subtle);
+}
+
+.content {
+  flex: 1;
+  display: grid;
+  /* colonne bornée à la largeur du conteneur : un contenu large (valeur longue,
+     texte nowrap) ne peut plus élargir la grille → jamais de scroll horizontal. */
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: var(--spacing-base-6);
+  /* Zone de sécurité haute ~40px + encoche (cohérent avec tous les écrans). */
+  padding: calc(var(--spacing-base-10) + env(safe-area-inset-top))
+    var(--spacing-base-4) var(--spacing-base-6);
+}
+
+.contentCentered {
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  font: var(--text-caption-1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.eyebrowError {
+  color: var(--foreground-error);
+}
+
+.titleLg {
+  margin: 0;
+  font: var(--text-h3);
+  color: var(--foreground-default);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-h4);
+  color: var(--foreground-default);
+}
+
+.helper {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-subtle);
+}
+
+.helperSm {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-subtle);
+}
+
+.caption {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+/* Écran Notifications (309:2312) : respiration verticale large entre blocs,
+   l'eyebrow reste collé à son titre. */
+.contentLoose {
+  gap: var(--spacing-base-8);
+}
+
+.headerBlock {
+  display: grid;
+  gap: var(--spacing-base-3);
+}
+
+/* Champ libellé + textarea (écran Feedback). */
+.field {
+  display: grid;
+  gap: var(--spacing-base-2);
+}
+
+.textArea {
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+  background: var(--background-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-field);
+  padding: var(--spacing-base-3) var(--spacing-base-4);
+  width: 100%;
+  min-height: 154px;
+  resize: none;
+
+  &::placeholder {
+    color: var(--foreground-subtle);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}
+
+.ctaZone {
+  display: grid;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-4) var(--spacing-base-4)
+    calc(var(--spacing-base-10) + env(safe-area-inset-bottom));
+}
+
+/* « Retour au profil » : bouton ghost (icône arrowLeft) sticky en bas, sur
+   fond opaque souligné d'une ombre légère (le contenu défile dessous),
+   16px de padding (maquette 98:1601). */
+.stickyBack {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  background: var(--background-default);
+  box-shadow: 0 -3px 20px rgb(0 0 0 / 0.05);
+  padding: var(--spacing-base-4) var(--spacing-base-4)
+    calc(var(--spacing-base-4) + env(safe-area-inset-bottom));
+}
+
+.backIcon {
+  flex: none;
+}
+
+/* ---- groupes de choix (Notifications & rythme) ---- */
+.fieldset {
+  display: grid;
+  gap: var(--spacing-base-3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+}
+
+/* Rangée de l'interrupteur global « Toutes les notifications ». */
+.masterRow {
+  padding: var(--spacing-base-3) 0;
+}
+
+/* Interrupteur global coupé : tout le groupe se grise. Les coques
+   container-field suivent déjà l'état natif (inputs désactivés) ; on grise
+   aussi les titres de groupe et les légendes. */
+.fieldset:disabled {
+  & .groupTitle,
+  & .caption {
+    color: var(--foreground-disabled);
+  }
+}
+
+/* Titre de groupe = H5 (règle des titres de section). Le float neutralise
+   le rendu spécial du <legend>, qui participe alors à la grille (gap). */
+.groupTitle {
+  float: left;
+  width: 100%;
+  margin: 0;
+  /* respiration entre le sous-titre H5 et les blocs juste en dessous
+     (12px + le gap 12 de la grille = 24, maquette 309:2312) */
+  margin-bottom: var(--spacing-base-3);
+  padding: 0;
+  font: var(--text-h5);
+  color: var(--foreground-default);
+}
+
+/* ---- panneaux (Tes données, Suppression) ---- */
+.panel {
+  display: grid;
+  gap: var(--spacing-base-3);
+  width: 100%;
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-subtle);
+  text-align: left;
+}
+
+.panelPlain {
+  background: var(--background-default);
+}
+
+/* Zone de suppression : séparée, bordure erreur, jamais à un tap. */
+.panelDanger {
+  background: var(--background-default);
+  border: 1px solid var(--border-error);
+  cursor: pointer;
+  font: inherit;
+
+  &:focus-visible {
+    outline: 2px solid var(--border-error);
+    outline-offset: 2px;
+  }
+}
+
+.panelTitle {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+}
+
+.panelTitleError {
+  color: var(--foreground-error);
+}
+
+.panelText {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-subtle);
+}
+
+/* Dette DS : pas de variant destructive du Button → secondary + overrides
+   error (texte + bordure, fond error au hover), maquettes 98:1583 + 153:1857. */
+.dangerAction {
+  color: var(--foreground-error);
+  border-color: var(--border-error);
+
+  &:hover:not(:disabled) {
+    background: var(--background-error);
+    border-color: var(--border-error);
+    color: var(--foreground-error);
+  }
+}
+
+/* ---- lignes de réponses (Tes réponses d'onboarding) ---- */
+.answers {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.answerRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base-2);
+  padding: var(--spacing-base-3) 0;
+  border: 0;
+  border-bottom: 1px solid var(--border-subtle);
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}
+
+.answerLabel {
+  flex: 1;
+  /* min-width:0 : autorise le rétrécissement en flex (sinon min-content force
+     la largeur et déborde). */
+  min-width: 0;
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+}
+
+.answerValue {
+  margin: 0;
+  /* min-width:0 : indispensable pour que l'ellipsis s'applique en flex sur un
+     texte nowrap long (sinon min-content déborde, scroll horizontal). */
+  min-width: 0;
+  font: var(--text-caption-1);
+  color: var(--foreground-subtle);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 45%;
+}
+
+.answerChevron {
+  color: var(--brand-primary);
+  flex: none;
+}
+
+/* Sur-couche de réédition : plein écran, l'écran d'onboarding s'y rend tel quel. */
+.editDialog {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: var(--background-default);
+
+  &::backdrop {
+    background: var(--surface-immersive);
+    opacity: 0.4;
+  }
+}

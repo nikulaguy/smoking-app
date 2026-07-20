@@ -1,0 +1,223 @@
+.eyebrow {
+  margin: 0;
+  font: var(--text-caption-1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--content-on-immersive-subtle);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-h3);
+  color: var(--content-on-immersive);
+}
+
+.caption {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--content-on-immersive-subtle);
+}
+
+.feed {
+  display: grid;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-6) var(--spacing-base-4) 0;
+}
+
+/* Phase prépa : respiration verticale large entre les blocs (211:1745). */
+.feedLoose {
+  gap: var(--spacing-base-8);
+}
+
+/* Conseil du jour : carte tapable au contour neutre (211:1745 — bordure et
+   flèche par défaut, pas la teinte interactive des cartes de navigation). */
+.tipCard {
+  border-color: var(--border-default);
+
+  & svg {
+    color: var(--foreground-default);
+  }
+}
+
+/* carte de clôture éthique : le fil est fini, jamais infini */
+.pause {
+  display: grid;
+  gap: var(--spacing-base-2);
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-fade-hover);
+  text-align: center;
+}
+
+.pauseTitle {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+}
+
+.pauseText {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-subtle);
+}
+
+/* ---- Phase préparation ---- */
+.countdown {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-subtle);
+}
+
+.countdownText {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.countdownLabel {
+  margin: 0;
+  font: var(--text-caption-1);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.countdownDate {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+}
+
+.countdownDay {
+  margin: 0;
+  font: var(--text-h3);
+  color: var(--brand-primary);
+}
+
+.tipNote {
+  display: block;
+  margin-top: var(--spacing-base-2);
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}
+
+.prog {
+  display: grid;
+  gap: var(--spacing-base-6);
+}
+
+.progTitle {
+  margin: 0;
+  font: var(--text-h5);
+  color: var(--foreground-default);
+}
+
+.progList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--spacing-base-3);
+}
+
+.progRow,
+.progRowToday {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-3);
+  border-radius: var(--radius-lg);
+  background: var(--background-default-alt);
+}
+
+.progRowToday {
+  background: var(--background-subtle);
+}
+
+/* Étiquette de jour du programme (J-2, J-1…). Aujourd'hui = pleine (accent),
+   à venir = contour. Source Figma : prep-row · pill (213:1777 / 213:1783). */
+.pill,
+.pillToday {
+  flex: none;
+  padding: 2px var(--spacing-base-2);
+  border-radius: var(--radius-lg);
+  font: var(--text-caption-2);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pill {
+  border: 1px solid var(--border-default);
+  color: var(--foreground-default);
+}
+
+.pillToday {
+  background: var(--background-accent);
+  color: var(--foreground-default-invert);
+}
+
+/* Palier « Jour J » du programme — illustration cible + date en évidence.
+   Source Figma : palier-jour-j (248:2090). */
+.jdayRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-default-alt);
+}
+
+.jdayDate {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+  text-transform: capitalize;
+}
+
+/* Bloc « Tu es prêt » — remplace le conseil quand la check-list est complète.
+   Source Figma : card-conseil-du-jour, état prêt (248:2000). */
+.readyCard {
+  display: grid;
+  justify-items: center;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+  background: var(--background-accent);
+  text-align: center;
+}
+
+.readyTitle {
+  margin: 0;
+  font: var(--text-h4);
+  color: var(--foreground-default-invert);
+}
+
+.readyText {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-default-invert);
+}
+
+.rowTexts {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.rowTheme {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+}
+
+.rowNote {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+}

@@ -1,0 +1,85 @@
+/**
+ * container-field — socle visuel commun des champs et tuiles interactives.
+ * Les états dérivent du contenu natif (input coché, désactivé, focus, invalide)
+ * ou des data-attributes posés par le consommateur (usages non-input).
+ * Source Figma : container-field (node 1:877), 5 états × 3 tailles.
+ */
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-3) var(--spacing-base-4);
+  background: var(--background-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-field);
+  transition: background-color 120ms ease, border-color 120ms ease;
+
+  /* pressed */
+  &:active {
+    background: var(--background-default-alt);
+    border-color: var(--border-interactive);
+  }
+
+  /* selected — dérivé du contenu natif ou forcé par le consommateur */
+  &:has(input:checked),
+  &[data-state="selected"] {
+    background: var(--background-subtle);
+    border-color: var(--border-accent);
+    border-width: 2px;
+    /* compense l'épaississement de bordure pour éviter le décalage */
+    padding: calc(var(--spacing-base-3) - 1px) calc(var(--spacing-base-4) - 1px);
+  }
+
+  /* error */
+  &:has(input[aria-invalid="true"]),
+  &[data-state="error"] {
+    border-color: var(--border-error);
+    border-width: 2px;
+    padding: calc(var(--spacing-base-3) - 1px) calc(var(--spacing-base-4) - 1px);
+  }
+
+  /* disabled — prime sur selected : fond neutre, tout se grise */
+  &:has(input:disabled),
+  &[data-state="disabled"] {
+    background: var(--background-default);
+    border-color: var(--border-interactive-disabled);
+    color: var(--foreground-disabled);
+    pointer-events: none;
+  }
+
+  /* focus visible (clavier) sur le contenu natif */
+  &:has(input:focus-visible) {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}
+
+.compact {
+  justify-content: center;
+  width: 46px;
+  min-height: 48px;
+  padding: 0;
+
+  &:has(input:checked),
+  &[data-state="selected"],
+  &:has(input[aria-invalid="true"]),
+  &[data-state="error"] {
+    padding: 0;
+  }
+}
+
+.tile {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-base-2);
+  min-height: 112px;
+  padding: var(--spacing-base-3);
+
+  &:has(input:checked),
+  &[data-state="selected"],
+  &:has(input[aria-invalid="true"]),
+  &[data-state="error"] {
+    padding: calc(var(--spacing-base-3) - 1px);
+  }
+}

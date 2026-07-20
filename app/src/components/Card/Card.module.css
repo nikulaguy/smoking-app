@@ -1,0 +1,61 @@
+/**
+ * Card — deux sémantiques distinctes (règle 2026-07-12) :
+ * - variant "link" : contenu tapable, bordure + flèche ↗ (affordance lien).
+ * - variant "panel" : panneau d'information éditorial, fond subtil, jamais de flèche.
+ * Pour un récapitulatif clé/valeur, utiliser RecapList, jamais une Card.
+ */
+.root {
+  position: relative;
+  display: grid;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+}
+
+.panel {
+  background: var(--background-subtle);
+}
+
+.link {
+  border: 1px solid var(--border-interactive);
+  background: var(--background-default);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: var(--spacing-base-4);
+  right: var(--spacing-base-4);
+  color: var(--brand-primary);
+}
+
+.badge {
+  justify-self: start;
+  padding: 2px var(--spacing-base-2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  font: var(--text-caption-2);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--foreground-default);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+}
+
+.text {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-subtle);
+}

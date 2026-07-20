@@ -1,0 +1,109 @@
+/**
+ * select-field — champ de sélection fermé + sélecteur plein écran.
+ * Jamais de liste déroulante flottante sur mobile.
+ * Source Figma : select-field (20:161) + écrans sélecteurs (2a/2b).
+ */
+.root {
+  display: grid;
+  gap: var(--spacing-base-2);
+}
+
+.fieldLabel {
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+}
+
+.trigger {
+  cursor: pointer;
+  font: var(--text-body-1);
+  color: var(--foreground-default);
+  text-align: left;
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}
+
+.value {
+  flex: 1;
+
+  &[data-empty="true"] {
+    color: var(--foreground-subtle);
+  }
+}
+
+.chevron {
+  flex: none;
+  color: var(--foreground-subtle);
+}
+
+.errorMsg {
+  margin: 0;
+  font: var(--text-caption-2);
+  color: var(--foreground-error);
+}
+
+/* sélecteur plein écran (dialog natif) */
+.selector {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: var(--spacing-base-14) var(--spacing-base-4) var(--spacing-base-10);
+  background: var(--background-default);
+  display: none;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--spacing-base-8);
+
+  &[open] {
+    display: grid;
+  }
+
+  /* Motion : entrée RAPIDE par le haut, sortie en sens inverse (vers le
+     haut). Courbes asymétriques : l'état de base porte la SORTIE (accélérée,
+     plus courte : l'écran quitte franchement, sans traîner ses derniers
+     pixels), l'état ouvert porte l'ENTRÉE (décélérée : arrive vite, se pose
+     en douceur). allow-discrete retient le dialog le temps de la sortie.
+     Surcharge le fondu générique des dialogs (index.css). */
+  @media (prefers-reduced-motion: no-preference) {
+    & {
+      opacity: 1;
+      scale: 1;
+      translate: 0 -100%;
+      transition:
+        translate 220ms cubic-bezier(0.55, 0, 0.85, 0.36),
+        display 220ms allow-discrete,
+        overlay 220ms allow-discrete;
+    }
+
+    &[open] {
+      translate: 0 0;
+      transition:
+        translate 280ms cubic-bezier(0.16, 1, 0.3, 1),
+        display 280ms allow-discrete,
+        overlay 280ms allow-discrete;
+
+      @starting-style {
+        translate: 0 -100%;
+      }
+    }
+  }
+}
+
+.selectorTitle {
+  margin: 0;
+  font: var(--text-h4);
+  color: var(--foreground-default);
+}
+
+.options {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--spacing-base-3);
+  align-content: start;
+}

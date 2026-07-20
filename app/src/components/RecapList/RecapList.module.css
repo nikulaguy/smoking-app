@@ -1,0 +1,34 @@
+/**
+ * recap-item — ligne de récapitulatif en lecture seule (libellé + valeur).
+ * Rendu en liste de définitions. Source Figma : recap-item (node 74:1209).
+ */
+.list {
+  margin: 0;
+  display: grid;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-3) 0;
+  border-bottom: 1px solid var(--border-subtle);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.label {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-subtle);
+}
+
+.value {
+  margin: 0;
+  font: var(--text-caption-1);
+  color: var(--foreground-default);
+  text-align: right;
+}

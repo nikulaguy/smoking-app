@@ -1,0 +1,16 @@
+# Système
+.DS_Store
+
+# Dépendances et builds
+node_modules/
+dist/
+dev-dist/
+storybook-static/
+
+# Environnements locaux et secrets (supabase/.env.local, app/.env.local…)
+*.local
+.netlify/
+supabase/.temp/
+
+# Logs
+*.log

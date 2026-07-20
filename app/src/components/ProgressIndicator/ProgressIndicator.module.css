@@ -1,0 +1,28 @@
+/**
+ * progress-indicator — avancement dans une séquence.
+ * L'information est portée par le texte visible ; la barre est décorative.
+ * Source Figma : progress-indicator (node 4:9).
+ */
+.root {
+  display: grid;
+  gap: var(--spacing-base-2);
+}
+
+.label {
+  font: var(--text-caption-1);
+  color: var(--foreground-default);
+}
+
+.track {
+  height: 6px;
+  border-radius: var(--radius-lg);
+  background: var(--border-subtle);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: var(--radius-lg);
+  background: var(--brand-primary);
+  transition: width 300ms ease;
+}

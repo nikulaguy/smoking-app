@@ -1,0 +1,32 @@
+/**
+ * Link — miroir du composant link (type=standalone) de Foundation - Web
+ * Components : Regular 18 (body-1), couleur interactive, hover/active du DS,
+ * pas de soulignement. Le look & feel vit ici ; le placement (alignement,
+ * marges) appartient à l'écran hôte via className.
+ */
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  border: 0;
+  background: none;
+  padding: var(--spacing-base-2);
+  font: var(--text-body-1);
+  color: var(--foreground-interactive);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--foreground-interactive-hover);
+  }
+
+  &:active {
+    color: var(--foreground-interactive-active);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}

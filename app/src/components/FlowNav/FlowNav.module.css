@@ -1,0 +1,70 @@
+/**
+ * flow-nav — navigation des flux à étapes (retour + quitter) et confirmation
+ * de sortie. Discret : actions tertiaires, jamais en concurrence avec le CTA.
+ */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* compense le padding tactile des boutons pour l'alignement optique */
+  margin: calc(var(--spacing-base-2) * -1) calc(var(--spacing-base-2) * -1) 0;
+}
+
+.back,
+.quit {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-base-1);
+  margin: 0;
+  padding: var(--spacing-base-2);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  font: var(--text-caption-1);
+  color: var(--foreground-interactive);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--border-interactive);
+    outline-offset: 2px;
+  }
+}
+
+/* Confirmation de sortie : carte centrée, calme (aucun rouge, doc 06). */
+.dialog {
+  width: min(343px, calc(100vw - var(--spacing-base-8)));
+  margin: auto;
+  border: 0;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-base-6) var(--spacing-base-4);
+  background: var(--background-default);
+  color: var(--foreground-default);
+
+  &::backdrop {
+    background: var(--surface-immersive);
+    opacity: 0.4;
+  }
+
+  &[open] {
+    display: grid;
+    gap: var(--spacing-base-3);
+  }
+}
+
+.dialogTitle {
+  margin: 0;
+  font: var(--text-h5);
+  color: var(--foreground-default);
+}
+
+.dialogText {
+  margin: 0;
+  font: var(--text-body-2);
+  color: var(--foreground-subtle);
+}
+
+.dialogActions {
+  display: grid;
+  gap: var(--spacing-base-3);
+  margin-top: var(--spacing-base-2);
+}

@@ -1,0 +1,60 @@
+/**
+ * Badge — miroir du composant badge de Foundation - Web Components.
+ * Géométrie de la librairie : pill (radius/full), hauteur 32, padding 0/16,
+ * texte caption-1. Les fonds consomment les tokens base/* de la librairie.
+ */
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 var(--spacing-base-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  font: var(--text-caption-1);
+  color: var(--foreground-default);
+  white-space: nowrap;
+}
+
+/* Type=default : contour, fond transparent */
+.default {
+  background: var(--background-fade);
+  border-color: var(--border-default);
+}
+
+/* Type=primary : fond sombre → texte clair stable (les fonds base/* ne
+   changent pas en dark, donc le texte non plus, sinon contraste cassé). */
+.primary {
+  background: var(--base-default-invert);
+  color: var(--content-on-immersive);
+}
+
+/* Alternates : fonds clairs (jaune, menthe, pastels) dans les 2 modes →
+   texte sombre stable (jamais foreground-default qui s'éclaircit en dark). */
+.alternate1,
+.alternate2,
+.alternate3,
+.alternate4,
+.alternate5 {
+  color: var(--content-on-level);
+}
+
+.alternate1 {
+  background: var(--base-alternative-1);
+}
+
+.alternate2 {
+  background: var(--base-alternative-2);
+}
+
+.alternate3 {
+  background: var(--base-alternative-3);
+}
+
+.alternate4 {
+  background: var(--base-alternative-4);
+}
+
+.alternate5 {
+  background: var(--base-alternative-5);
+}
