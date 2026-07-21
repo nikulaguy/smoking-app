@@ -1,0 +1,97 @@
+/**
+ * radiobox — miroir du composant DS (radiobox + atoms/radio/*).
+ * États du set Figma : default, hover, checked, disabled, error.
+ * Tout dérive de l'input natif ; hover limité aux dispositifs à survol réel.
+ */
+.radiobox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-base-3);
+  cursor: pointer;
+  font: var(--text-body-2);
+  color: var(--foreground-default);
+
+  &:has(input:disabled) {
+    cursor: default;
+    color: var(--foreground-disabled);
+  }
+}
+
+/* atoms/radio/* — la puce (input natif stylé, jamais de div role="radio") */
+.radio {
+  appearance: none;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  /* centre la puce sur la première ligne de l'intitulé */
+  margin: 2px 0 0;
+  border: 2px solid var(--border-interactive);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--brand-primary);
+    transform: scale(0);
+    transition: transform 100ms ease-in-out;
+  }
+
+  /* checked */
+  &:checked::before {
+    transform: scale(1);
+  }
+
+  /* hover (dispositifs à survol réel uniquement) */
+  @media (hover: hover) {
+    .radiobox:hover &:not(:disabled),
+    label:hover &:not(:disabled) {
+      border-color: var(--brand-primary);
+    }
+  }
+
+  /* error */
+  &[aria-invalid="true"] {
+    border-color: var(--border-error);
+  }
+
+  /* disabled */
+  &:disabled {
+    border-color: var(--border-interactive-disabled);
+
+    &::before {
+      background: var(--border-interactive-disabled);
+    }
+  }
+}
+
+.texts {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+/* Intitulé (prop Figma : label). */
+.label {
+  display: block;
+}
+
+/* Conditions (prop Figma : conditions / Show conditions). */
+.conditions {
+  display: block;
+  font: var(--text-caption-2);
+  color: var(--foreground-subtle);
+
+  /* les états teintent aussi les conditions */
+  label:has(input:disabled) & {
+    color: var(--foreground-disabled);
+  }
+
+  label:has(input[aria-invalid="true"]) & {
+    color: var(--foreground-error);
+  }
+}

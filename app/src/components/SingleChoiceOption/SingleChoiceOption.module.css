@@ -1,6 +1,7 @@
 /**
  * single-choice-option — option a choix unique (rôle radio natif).
- * Coque : container-field. Source Figma : single-choice-option (node 3:36).
+ * Coque : container-field ; contenu : atoms du Radiobox (puce atoms/radio/*,
+ * intitulé, conditions). Source Figma : single-choice-option (node 3:36).
  */
 .option {
   /* la puce s'aligne sur la ligne de l'intitulé (pas sur le bloc entier)
@@ -12,69 +13,5 @@
 
   &:has(input:disabled) {
     cursor: default;
-  }
-}
-
-/* input natif stylé — jamais de div role="radio" */
-.input {
-  appearance: none;
-  flex: none;
-  width: 20px;
-  height: 20px;
-  /* centre la puce sur la ligne de l'intitulé (body-1 ≈ 25px de ligne) */
-  margin: 2px 0 0;
-  border: 2px solid var(--border-interactive);
-  border-radius: 50%;
-  display: grid;
-  place-content: center;
-
-  &::before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--brand-primary);
-    transform: scale(0);
-    transition: transform 100ms ease-in-out;
-  }
-
-  &:checked::before {
-    transform: scale(1);
-  }
-
-  &:disabled {
-    border-color: var(--border-interactive-disabled);
-
-    &::before {
-      background: var(--border-interactive-disabled);
-    }
-  }
-}
-
-.label {
-  flex: 1;
-  min-width: 0;
-  display: grid;
-  gap: 2px;
-}
-
-/* Intitulé principal (hérite de la typo body-1 de .option). */
-.title {
-  display: block;
-}
-
-/* Petite description secondaire optionnelle. */
-.description {
-  display: block;
-  font: var(--text-caption-2);
-  color: var(--foreground-subtle);
-
-  /* les états de l'option teintent aussi la description */
-  .option:has(input:disabled) & {
-    color: var(--foreground-disabled);
-  }
-
-  .option:has(input[aria-invalid="true"]) & {
-    color: var(--foreground-error);
   }
 }

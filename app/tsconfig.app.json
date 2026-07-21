@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
-  "exclude": ["src/figma"]
+  "exclude": ["src/figma", "src/connect"]
 }
