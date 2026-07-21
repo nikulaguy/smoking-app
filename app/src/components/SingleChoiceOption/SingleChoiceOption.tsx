@@ -20,15 +20,13 @@ interface SingleChoiceOptionProps
 
 /**
  * Option à choix unique au sein d'un groupe : une seule option sélectionnée
- * à la fois. Toute la rangée est cliquable (le label englobe l'input natif).
- * `description` ajoute une petite ligne secondaire sous l'intitulé.
- *
- * Structure = miroir Figma : coque container-field, et dans son slot les
- * atoms du Radiobox (puce atoms/radio/*, intitulé, conditions).
- *
- * Le groupe d'options doit être un `<fieldset>` avec `<legend>` = la question,
- * et toutes les options partagent le même `name`. Clavier natif radio :
- * flèches pour changer, Tab pour entrer/sortir du groupe.
+ * à la fois. Toute la rangée est cliquable (le label englobe l'input radio
+ * natif). Structure : coque container-field (socle commun des états), et dans
+ * son slot les atoms du Radiobox (puce, intitulé, conditions). Le groupe
+ * d'options est un fieldset avec legend = la question ; toutes les options
+ * partagent le même name. Ne jamais mélanger deux groupes de choix sur un
+ * même écran. (Description canonique, synchronisée avec le champ natif du
+ * composant Figma 3:36 et sa fiche de doc.)
  */
 export const SingleChoiceOption = ({
   children,
