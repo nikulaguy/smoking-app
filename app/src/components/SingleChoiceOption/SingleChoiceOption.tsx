@@ -1,5 +1,5 @@
 import { cx } from "class-variance-authority";
-import type { InputHTMLAttributes, ReactNode } from "react";
+import { useId, type InputHTMLAttributes, type ReactNode } from "react";
 import { atom } from "../../atom";
 import {
   containerFieldVariants,
@@ -33,20 +33,28 @@ export const SingleChoiceOption = ({
   description,
   size = "default",
   className,
+  id,
   ...inputProps
-}: SingleChoiceOptionProps) => (
-  <SingleChoiceOption.Root
-    className={cx(containerFieldVariants({ size }), className)}
-  >
-    <Radiobox.Input type="radio" {...inputProps} />
-    <Radiobox.Texts>
-      <span className={radioboxText.label}>{children}</span>
-      {description && (
-        <span className={radioboxText.conditions}>{description}</span>
-      )}
-    </Radiobox.Texts>
-  </SingleChoiceOption.Root>
-);
+}: SingleChoiceOptionProps) => {
+  // RGAA 11.1.2 : même englobant, le label porte un for explicite vers l'id
+  // de l'input.
+  const autoId = useId();
+  const inputId = id ?? autoId;
+  return (
+    <SingleChoiceOption.Root
+      className={cx(containerFieldVariants({ size }), className)}
+      htmlFor={inputId}
+    >
+      <Radiobox.Input type="radio" id={inputId} {...inputProps} />
+      <Radiobox.Texts>
+        <span className={radioboxText.label}>{children}</span>
+        {description && (
+          <span className={radioboxText.conditions}>{description}</span>
+        )}
+      </Radiobox.Texts>
+    </SingleChoiceOption.Root>
+  );
+};
 
 /** Coque de l'option — un label qui englobe l'input (rangée entière cliquable). */
 SingleChoiceOption.Root = atom("label", styles.option);

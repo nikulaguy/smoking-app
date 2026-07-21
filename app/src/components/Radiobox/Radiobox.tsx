@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactNode } from "react";
+import { useId, type InputHTMLAttributes, type ReactNode } from "react";
 import { atom } from "../../atom";
 import styles from "./Radiobox.module.css";
 
@@ -26,16 +26,23 @@ export const Radiobox = ({
   children,
   conditions,
   className,
+  id,
   ...inputProps
-}: RadioboxProps) => (
-  <Radiobox.Root className={className}>
-    <Radiobox.Input type="radio" {...inputProps} />
-    <Radiobox.Texts>
-      <span className={styles.label}>{children}</span>
-      {conditions && <span className={styles.conditions}>{conditions}</span>}
-    </Radiobox.Texts>
-  </Radiobox.Root>
-);
+}: RadioboxProps) => {
+  // RGAA 11.1.2 : même englobant, le label porte un for explicite vers l'id
+  // de l'input.
+  const autoId = useId();
+  const inputId = id ?? autoId;
+  return (
+    <Radiobox.Root className={className} htmlFor={inputId}>
+      <Radiobox.Input type="radio" id={inputId} {...inputProps} />
+      <Radiobox.Texts>
+        <span className={styles.label}>{children}</span>
+        {conditions && <span className={styles.conditions}>{conditions}</span>}
+      </Radiobox.Texts>
+    </Radiobox.Root>
+  );
+};
 
 /** Coque : un label qui englobe l'input (toute la rangée est cliquable). */
 Radiobox.Root = atom("label", styles.radiobox);
