@@ -10,11 +10,13 @@ interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"
 }
 
 /**
- * Interrupteur marche/arrêt d'un réglage global (checkbox native
- * `role="switch"`, jamais de div cliquable). À réserver aux réglages à effet
- * immédiat (activer/couper les notifications) — pour un choix dans un
- * groupe, utiliser MultiChoiceOption / SingleChoiceOption.
- * Source Figma : switch (composant custom du fichier Smoking-App).
+ * Interrupteur de réglage : active ou coupe un comportement (notifications,
+ * canal de rappel). Toute la rangée est cliquable, intitulé à gauche et piste
+ * à droite, description optionnelle sous l'intitulé. C'est une checkbox native
+ * stylée avec role switch : l'état vient de l'input, jamais d'un state React.
+ * Effet immédiat, sans bouton Valider.
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const Switch = ({ children, description, ...inputProps }: SwitchProps) => (
   <Switch.Root>

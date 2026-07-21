@@ -19,9 +19,12 @@ interface StatMetricProps
 }
 
 /**
- * Métrique valeur + libellé. `size="hero"` pour la métrique principale d'un
- * écran, `compact` pour les métriques secondaires en rangée. Valeur et
- * libellé forment une seule information, adjacents dans le DOM.
+ * Compteur de statistique (argent économisé, cigarettes évitées) : une valeur
+ * mise en avant et son libellé de contexte. Deux tailles : hero pour la stat
+ * vedette du dashboard, compact pour les rangées de stats. Les libellés sont
+ * recadrés par le profil : jamais de reproche.
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const StatMetric = ({
   children,

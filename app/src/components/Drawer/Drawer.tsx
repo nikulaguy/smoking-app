@@ -18,12 +18,15 @@ interface DrawerProps {
 }
 
 /**
- * Drawer — modale ancrée en bas de l'écran (source Figma : « modale -
- * affichage par le bas avec overlay », 316:3584). Le contenu en dessous est
- * inerte (dialog modal natif) et ne défile plus. Ouverture par le parent :
- * `ref.current.showModal()` puis `ref.current.focus()` (le focus va au
- * dialog, pas au premier bouton — l'annonce passe par aria-labelledby).
- * Confirmer déclenche l'action ; Annuler et Échap ferment sans rien changer.
+ * Modale ancrée en bas de l'écran avec overlay (source Figma : « modale -
+ * affichage par le bas avec overlay », 316:3584) : une question ou une
+ * information, une action principale et un repli. Dialog natif modal : le
+ * contenu en dessous est inerte et ne défile plus. Ouverture par le parent :
+ * ref.current.showModal() puis focus(). Confirmer déclenche l'action ; Annuler
+ * et Échap ferment sans rien changer. Motion : montée élastique 380 ms, sortie
+ * accélérée 260 ms (allow-discrete).
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const Drawer = forwardRef<HTMLDialogElement, DrawerProps>(
   ({ title, children, confirmLabel, onConfirm, cancelLabel, onClose }, ref) => {

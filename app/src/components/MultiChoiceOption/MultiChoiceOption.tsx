@@ -40,21 +40,15 @@ const Arrow = () => (
 );
 
 /**
- * Option à sélection multiple au sein d'un groupe (checkbox natif).
- * Trois contenus possibles (nested Figma multi-choice-content, 316:2793) :
- * case + intitulé ; + `description` (ligne secondaire sous l'intitulé) ;
- * + flèche de détail (`onDetail`, prop Figma showLink). La hauteur de la
- * coque suit toujours le contenu (hug).
- * Règle métier : si un maximum de sélections s'applique, désactiver
- * (`disabled`) les options restantes quand il est atteint et l'expliquer
- * dans un compteur `aria-live="polite"` sous la liste.
- *
- * Le groupe doit être un `<fieldset>` dont la `<legend>` porte la question
- * ET la consigne du maximum (ex. « choisis jusqu'à 3 »).
- *
- * La flèche de détail vit DANS la coque, en fin de rangée (source Figma
- * 36:572), et reste un bouton frère du label (jamais de bouton dans un
- * label — les deux sont des éléments étiquetables).
+ * Option multi-sélection au sein d'un groupe : plusieurs options cochables,
+ * avec un plafond métier possible (max atteint : options restantes désactivées
+ * + compteur). Toute la rangée est cliquable. Structure : coque container-
+ * field, et dans son slot la checkbox avec son label (label, mention
+ * conditions, flèche de détail optionnelle). La flèche « Voir le détail » est
+ * un bouton FRÈRE du label, jamais imbriqué : deux éléments étiquetables
+ * distincts.
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const MultiChoiceOption = ({
   children,

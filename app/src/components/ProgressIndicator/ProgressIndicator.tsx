@@ -10,9 +10,11 @@ interface ProgressIndicatorProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Indicateur d'avancement dans une séquence. L'information est portée par le
- * texte visible ; la barre est purement décorative (aria-hidden), pas de
- * role progressbar nécessaire tant que le texte est présent.
+ * Progression d'un flux à étapes (onboarding, profilage) : libellé « Étape X
+ * sur Y » et barre de remplissage. Purement informatif, mis à jour à chaque
+ * étape ; le libellé textuel porte l'information, la barre l'illustre.
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const ProgressIndicator = ({
   children,

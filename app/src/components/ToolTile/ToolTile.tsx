@@ -12,9 +12,12 @@ interface ToolTileProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * Tuile d'action d'une grille d'outils (boîte à outils anti-envie).
- * S'utilise en grille 2 colonnes. L'usage de chaque outil est journalisé
- * (signal JITAI : outil choisi, puis « ça t'a aidé ? »).
+ * Tuile d'action d'une grille d'outils (boîte à outils anti-envie) :
+ * illustration + libellé, en grille 2 colonnes. Bouton natif ; l'usage de
+ * chaque outil est journalisé (signal JITAI : outil choisi, puis « ça t'a aidé
+ * ? »). L'illustration est décorative, le libellé porte l'intitulé accessible.
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const ToolTile = ({ icon, children, className, ...props }: ToolTileProps) => (
   <ToolTile.Root

@@ -10,9 +10,13 @@ interface SosCravingProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * Action d'aide immédiate, présente dans le layout de l'app (pas dupliquée
- * par écran), flottante au-dessus de la tab-bar. Ouvre la sur-couche d'aide
- * plein écran ; le tap est aussi un signal JITAI (envie déclarée).
+ * Bouton SOS flottant persistant au-dessus de la tab bar (le dock) : l'action
+ * de secours toujours à portée de pouce. En ascension il ouvre la boîte à
+ * outils anti-envie ; en préparation il mène à la check-list, et disparaît
+ * quand la préparation est complète ou sur l'écran Prépa lui-même. Le libellé
+ * est personnalisé par le profil.
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const SosCraving = ({
   children = "Une envie, là ?",

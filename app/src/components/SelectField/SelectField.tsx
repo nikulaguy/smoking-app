@@ -33,10 +33,13 @@ interface SelectFieldProps
 }
 
 /**
- * Champ de sélection fermé : au tap, ouvre un sélecteur PLEIN ÉCRAN
- * (dialog natif : focus piégé et Échap gratuits) — jamais de liste
- * déroulante flottante sur mobile. À la validation, le focus revient
- * au déclencheur et le nouvel intitulé annonce la valeur.
+ * Champ de sélection fermé : au tap, ouvre un sélecteur plein écran (dialog
+ * natif : focus piégé et Échap gratuits), jamais de liste déroulante flottante
+ * sur mobile. Le sélecteur entre par le haut et ressort en sens inverse
+ * (grammaire des sur-couches). À la validation, le focus revient au
+ * déclencheur et le nouvel intitulé annonce la valeur choisie.
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const SelectField = ({
   label,

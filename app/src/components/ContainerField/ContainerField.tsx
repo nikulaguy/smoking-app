@@ -13,14 +13,15 @@ export const containerFieldVariants = cva(root, {
 export type ContainerFieldVariants = VariantProps<typeof containerFieldVariants>;
 
 /**
- * Socle visuel commun des champs et tuiles interactives (options de choix,
- * déclencheurs de sélection, pastilles d'échelle, tuiles d'action).
- *
- * Porte exclusivement le look & feel des états — la sémantique vit dans les
- * consommateurs. Les états `selected`, `error`, `disabled` et `focus` dérivent
- * automatiquement du contenu natif (`input` coché, invalide, désactivé) ;
- * pour les usages sans input, poser `data-state="selected|error|disabled"`.
- * `pressed/hover` (état Figma unique) = `:active` CSS + `:hover` sur les
- * dispositifs à survol réel (`@media (hover: hover)`), jamais un state React.
+ * Socle visuel commun de tous les champs et tuiles interactifs (options de
+ * choix, déclencheurs de sélection, pastilles d'échelle, tuiles d'outils).
+ * Porte exclusivement le look & feel des états : fond, bordure, radius,
+ * padding. Les états selected, error, disabled et focus dérivent
+ * automatiquement du contenu natif (input coché, invalide, désactivé) ;
+ * pressed/hover = :active au doigt et :hover sur les dispositifs à survol
+ * réel, mêmes styles. Le contenu est injecté via le slot : ne s'utilise jamais
+ * nu, toujours au sein d'un composant consommateur qui porte la sémantique.
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const ContainerField = atom("div", containerFieldVariants);

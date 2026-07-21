@@ -3,9 +3,13 @@ import { Button } from "../Button/Button";
 import styles from "./FlowNav.module.css";
 
 /**
- * Navigation des flux à étapes (onboarding, profilage) : revenir à l'étape
- * précédente et quitter le flux. Le retour ne perd rien (les réponses sont
- * enregistrées au fil de l'eau), la sortie demande confirmation (QuitDialog).
+ * Navigation des flux à étapes (onboarding, profilage) : « Retour » revient à
+ * l'étape précédente (réponses conservées), ✕ quitte avec confirmation
+ * (overlay dédié). Show back=false sur la première étape d'un flux ; Show
+ * quit=false sur l'écran final. Les réponses étant enregistrées au fil de
+ * l'eau, quitter ne perd jamais rien.
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const FlowNav = ({
   onBack,

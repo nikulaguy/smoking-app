@@ -23,10 +23,13 @@ interface LikertScaleProps
 }
 
 /**
- * Échelle de réponse graduée (Likert). Une pastille par valeur, un seul choix.
- * Clavier natif radio : flèches pour naviguer, un tap sélectionne.
- * Les extrémités portent leur ancre dans leur intitulé accessible
- * (« 1 — Pas du tout d'accord »).
+ * Échelle d'accord en rangée segmentée (7 ou 5 points) pour les questionnaires
+ * du profilage : une affirmation, des pastilles numérotées, deux ancres
+ * textuelles aux extrémités. Un groupe radio natif : une seule valeur, clavier
+ * natif. Chaque pastille est un likert-segment (container-field compact
+ * 46×48). L'affirmation est la légende du groupe.
+ * (Description canonique, synchronisée avec le champ natif Figma et la
+ * fiche de doc de la page Composants.)
  */
 export const LikertScale = ({
   legend,
