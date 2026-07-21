@@ -1,32 +1,41 @@
-# React + TypeScript + Vite
+# SmokingApp — l'app
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+PWA d'aide à l'arrêt du tabac : React 19 + Vite (rolldown) + TypeScript strict,
+Supabase (compte optionnel, sync, Edge Functions), design system maquetté dans
+Figma et décliné en composants + tokens CSS.
 
-Currently, two official plugins are available:
+## Démarrer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev              # http://localhost:5173
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Sans configuration Supabase (`.env.local`, voir `.env.example`), l'app
+fonctionne entièrement en local, sans compte.
+
+## Storybook
+
+- En ligne : https://nikulaguy.github.io/smoking-app/ (republiée à chaque push
+  touchant `app/`, workflow `.github/workflows/storybook.yml`)
+- En local : `npm run storybook` → http://localhost:6006
+
+## Qualité
+
+```bash
+npx tsc -b                            # types
+npm run lint                          # oxlint
+npx vitest run --project=storybook    # stories + interactions + a11y (axe)
+npm run build                         # build de production
+```
+
+## Déploiement
+
+Netlify, à la demande uniquement (jamais automatique) :
+
+```bash
+npx netlify-cli deploy --prod --dir=dist
+```
+
+Chaque publication est marquée d'un tag git `deploy-AAAA-MM-JJ`.
+Voir aussi `DEPLOY.md` et `../supabase/deploy-notes.md`.
