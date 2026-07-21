@@ -14,10 +14,19 @@
   border-radius: var(--radius-field);
   transition: background-color 120ms ease, border-color 120ms ease;
 
-  /* pressed */
+  /* pressed/hover (état Figma unique) : au doigt via :active, à la souris
+     via :hover — limité aux dispositifs qui survolent vraiment, pour éviter
+     le hover « collant » après un tap sur mobile. */
   &:active {
     background: var(--background-default-alt);
     border-color: var(--border-interactive);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background: var(--background-default-alt);
+      border-color: var(--border-interactive);
+    }
   }
 
   /* selected — dérivé du contenu natif ou forcé par le consommateur */

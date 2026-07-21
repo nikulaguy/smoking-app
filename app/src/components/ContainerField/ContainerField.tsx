@@ -20,6 +20,7 @@ export type ContainerFieldVariants = VariantProps<typeof containerFieldVariants>
  * consommateurs. Les états `selected`, `error`, `disabled` et `focus` dérivent
  * automatiquement du contenu natif (`input` coché, invalide, désactivé) ;
  * pour les usages sans input, poser `data-state="selected|error|disabled"`.
- * `pressed` = `:active` CSS, jamais un state React.
+ * `pressed/hover` (état Figma unique) = `:active` CSS + `:hover` sur les
+ * dispositifs à survol réel (`@media (hover: hover)`), jamais un state React.
  */
 export const ContainerField = atom("div", containerFieldVariants);
