@@ -1,5 +1,5 @@
 // url=https://www.figma.com/design/LDK3DSGI3aNuG0TeQhmZhq/Smoking-App?node-id=4-9
-// source=app/src/components/ProgressIndicator/ProgressIndicator.tsx
+// source=https://github.com/nikulaguy/smoking-app/blob/main/app/src/components/ProgressIndicator/ProgressIndicator.tsx
 // component=ProgressIndicator
 import figma from 'figma'
 const instance = figma.selectedInstance

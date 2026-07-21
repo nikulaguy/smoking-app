@@ -1,5 +1,5 @@
 // url=https://www.figma.com/design/LDK3DSGI3aNuG0TeQhmZhq/Smoking-App?node-id=274-2154
-// source=app/src/components/FlowNav/FlowNav.tsx
+// source=https://github.com/nikulaguy/smoking-app/blob/main/app/src/components/FlowNav/FlowNav.tsx
 // component=FlowNav
 import figma from 'figma'
 const instance = figma.selectedInstance

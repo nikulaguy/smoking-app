@@ -1,5 +1,5 @@
 // url=https://www.figma.com/design/LDK3DSGI3aNuG0TeQhmZhq/Smoking-App?node-id=1-877
-// source=app/src/components/ContainerField/ContainerField.tsx
+// source=https://github.com/nikulaguy/smoking-app/blob/main/app/src/components/ContainerField/ContainerField.tsx
 // component=ContainerField
 import figma from 'figma'
 const instance = figma.selectedInstance

@@ -1,5 +1,5 @@
 // url=https://www.figma.com/design/LDK3DSGI3aNuG0TeQhmZhq/Smoking-App?node-id=36-572
-// source=app/src/components/MultiChoiceOption/MultiChoiceOption.tsx
+// source=https://github.com/nikulaguy/smoking-app/blob/main/app/src/components/MultiChoiceOption/MultiChoiceOption.tsx
 // component=MultiChoiceOption
 import figma from 'figma'
 const instance = figma.selectedInstance

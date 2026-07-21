@@ -1,5 +1,5 @@
 // url=https://www.figma.com/design/LDK3DSGI3aNuG0TeQhmZhq/Smoking-App?node-id=67-1116
-// source=app/src/components/StatMetric/StatMetric.tsx
+// source=https://github.com/nikulaguy/smoking-app/blob/main/app/src/components/StatMetric/StatMetric.tsx
 // component=StatMetric
 import figma from 'figma'
 const instance = figma.selectedInstance

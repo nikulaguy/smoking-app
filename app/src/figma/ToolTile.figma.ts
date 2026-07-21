@@ -1,5 +1,5 @@
 // url=https://www.figma.com/design/LDK3DSGI3aNuG0TeQhmZhq/Smoking-App?node-id=91-1420
-// source=app/src/components/ToolTile/ToolTile.tsx
+// source=https://github.com/nikulaguy/smoking-app/blob/main/app/src/components/ToolTile/ToolTile.tsx
 // component=ToolTile
 import figma from 'figma'
 const instance = figma.selectedInstance

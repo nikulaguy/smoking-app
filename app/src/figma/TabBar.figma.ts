@@ -1,5 +1,5 @@
 // url=https://www.figma.com/design/LDK3DSGI3aNuG0TeQhmZhq/Smoking-App?node-id=67-1094
-// source=app/src/components/TabBar/TabBar.tsx
+// source=https://github.com/nikulaguy/smoking-app/blob/main/app/src/components/TabBar/TabBar.tsx
 // component=TabBar
 import figma from 'figma'
 const instance = figma.selectedInstance

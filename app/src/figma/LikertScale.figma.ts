@@ -1,5 +1,5 @@
 // url=https://www.figma.com/design/LDK3DSGI3aNuG0TeQhmZhq/Smoking-App?node-id=27-309
-// source=app/src/components/LikertScale/LikertScale.tsx
+// source=https://github.com/nikulaguy/smoking-app/blob/main/app/src/components/LikertScale/LikertScale.tsx
 // component=LikertScale
 import figma from 'figma'
 const instance = figma.selectedInstance
