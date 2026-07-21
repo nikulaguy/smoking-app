@@ -70,7 +70,7 @@ Deno.serve(async (req) => {
     const moments =
       ((state.phase2 as State | undefined)?.social_moments as string[] | undefined) ?? [];
     const reminder = isPrepPhase(state)
-      ? duePrepTip(state, hour)
+      ? duePrepTip(state, hour, new Date(), prefs.rhythm)
       : dueReminder(moments, hour);
     if (!reminder) continue;
 

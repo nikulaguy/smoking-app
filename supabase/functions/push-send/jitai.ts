@@ -114,16 +114,66 @@ const PREP_TIPS: { id: string; done: (s: PrepState) => boolean; title: string; b
 export const isPrepPhase = (state: PrepState, now = new Date()): boolean =>
   Boolean(state.quitAt && new Date(state.quitAt).getTime() > now.getTime());
 
+/** Second rendez-vous du soir (rythme « rapproché » uniquement). */
+export const PREP_EVENING_HOUR = 18;
+
+/** Jours restants avant l'arrêt (arrondi supérieur, ≥ 1 en phase prep). */
+const daysToQuit = (state: PrepState, now: Date): number =>
+  Math.max(1, Math.ceil((new Date(state.quitAt!).getTime() - now.getTime()) / 86_400_000));
+
+/** Compte à rebours quand il n'y a plus de mission à conseiller : la
+ *  préparation complète ne doit JAMAIS devenir un silence radio (vécu :
+ *  « rien reçu de la journée » avec tout coché). */
+const countdown = (
+  state: PrepState,
+  hour: number,
+  now: Date,
+): { title: string; body: string; url: string; tag: string } | null => {
+  const days = daysToQuit(state, now);
+  const phrase = state.answers?.phrase;
+  if (hour === PREP_TIP_HOUR) {
+    return days <= 1
+      ? {
+          title: "C'est demain 🏔️",
+          body: "Ton camp de base est prêt. Une belle dernière journée, et on part ensemble.",
+          url: "/",
+          tag: "prep-countdown",
+        }
+      : {
+          title: `J-${days} avant ton ascension`,
+          body: phrase
+            ? `Tout est prêt. Ta phrase : « ${phrase} »`
+            : "Tout est prêt. Profite de ces journées, l'ascension arrive.",
+          url: "/",
+          tag: "prep-countdown",
+        };
+  }
+  return null;
+};
+
 /** Conseil de préparation du jour à 9 h : tourne parmi les missions non
- *  faites (même rotation déterministe que l'app). Null si tout est fait. */
+ *  faites (même rotation déterministe que l'app). Quand tout est fait,
+ *  bascule sur le compte à rebours. Le rythme « rapproché » ajoute un
+ *  second rendez-vous à 18 h (relecture des raisons). */
 export const duePrepTip = (
   state: PrepState,
   hour: number,
   now = new Date(),
+  rhythm?: string,
 ): { title: string; body: string; url: string; tag: string } | null => {
+  // rendez-vous du soir : rythme rapproché uniquement
+  if (hour === PREP_EVENING_HOUR && rhythm === "rapproche") {
+    const days = daysToQuit(state, now);
+    return {
+      title: "Le sommet approche",
+      body: `J-${days}. Tes raisons t'attendent dans l'app, relis-les quand tu veux.`,
+      url: "/outil/raisons",
+      tag: "prep-evening",
+    };
+  }
   if (hour !== PREP_TIP_HOUR) return null;
   const pool = PREP_TIPS.filter((t) => !t.done(state));
-  if (!pool.length) return null;
+  if (!pool.length) return countdown(state, hour, now);
   const dayIndex = Math.floor(now.getTime() / 86_400_000);
   const tip = pool[dayIndex % pool.length];
   return { title: tip.title, body: tip.body, url: "/defis", tag: `prep-${tip.id}` };
