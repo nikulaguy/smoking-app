@@ -178,29 +178,31 @@
   text-transform: capitalize;
 }
 
-/* Bloc « Tu es prêt » — remplace le conseil quand la check-list est complète.
-   Source Figma : card-conseil-du-jour, état prêt (248:2000). */
-.readyCard {
+/* Carte « Pendant ton ascension » — remplace le conseil quand la check-list
+   est complète : explique ce que le Fil deviendra le jour J, sans redire
+   « Tu es prêt » (déjà porté par l'Accueil). Source Figma : card-conseil-du-jour,
+   état prêt (248:2000) : fond subtle, contour neutre, contenu centré. */
+.duringCard {
   display: grid;
   justify-items: center;
   gap: var(--spacing-base-3);
   padding: var(--spacing-base-4);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border-default);
-  background: var(--background-accent);
+  background: var(--background-subtle);
   text-align: center;
 }
 
-.readyTitle {
+.duringTitle {
   margin: 0;
   font: var(--text-h4);
-  color: var(--foreground-default-invert);
+  color: var(--foreground-default);
 }
 
-.readyText {
+.duringText {
   margin: 0;
   font: var(--text-body-2);
-  color: var(--foreground-default-invert);
+  color: var(--foreground-subtle);
 }
 
 .rowTexts {

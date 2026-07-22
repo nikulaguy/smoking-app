@@ -1,7 +1,7 @@
 import { useAppNavigate } from "../lib/nav";
 import { useEffect, useState } from "react";
 import target from "../assets/illustrations/target.svg";
-import thumbUp from "../assets/illustrations/thumb-up.svg";
+import timeline from "../assets/illustrations/timeline.svg";
 import { Card } from "../components/Card/Card";
 import { Confetti } from "../components/Confetti/Confetti";
 import { Hero } from "../components/Hero/Hero";
@@ -86,13 +86,18 @@ export const Fil = () => {
           </div>
 
           {/* Conseil du jour piloté par la check-list : on ne conseille que ce
-              qui reste à faire ; tout est fait → « Tu es prêt » (248:1987).
-              La carte est tapable et mène au détail de la mission (211:1745). */}
+              qui reste à faire ; tout est fait → carte d'explication du Fil
+              d'ascension (248:1987), pour éviter le doublon avec le bloc
+              « Tu es prêt » de l'Accueil. Tapable → détail mission (211:1745). */}
           {ready ? (
-            <div className={styles.readyCard}>
-              <img src={thumbUp} alt="" width={46} height={46} aria-hidden />
-              <p className={styles.readyTitle}>Tu es prêt !!!</p>
-              <p className={styles.readyText}>Tu vas y arriver !</p>
+            <div className={styles.duringCard}>
+              <img src={timeline} alt="" width={69} height={69} aria-hidden />
+              <p className={styles.duringTitle}>Pendant ton ascension !</p>
+              <p className={styles.duringText}>
+                C’est ici que tu retrouveras toutes les étapes de ta
+                progression, avec les différents gains sur ton évolution, ta
+                santé et ton porte-feuille, mais pas que !
+              </p>
             </div>
           ) : (
             <Card
