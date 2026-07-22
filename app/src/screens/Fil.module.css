@@ -187,9 +187,9 @@
   justify-items: center;
   gap: var(--spacing-base-3);
   padding: var(--spacing-base-4);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-default);
-  background: var(--background-subtle);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--background-default-alt);
   text-align: center;
 }
 
@@ -202,7 +202,7 @@
 .duringText {
   margin: 0;
   font: var(--text-body-2);
-  color: var(--foreground-subtle);
+  color: var(--foreground-default);
 }
 
 .rowTexts {

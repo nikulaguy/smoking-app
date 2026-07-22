@@ -24,6 +24,22 @@ import styles from "./Dashboard.module.css";
 const euro = (n: number) =>
   n.toLocaleString("fr-FR", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
+/** Invitation à se connecter (préparation) — fond default-alt, distinct du
+    bloc notifications en fond menthe (maquette 316:3849). */
+const ConnectCard = ({ navigate }: { navigate: (to: string) => void }) => (
+  <div className={styles.cardAlt}>
+    <p className={styles.blockTitle}>
+      Connecte toi pour avoir des notifs par mail et sur tous tes appareils.
+    </p>
+    <p className={styles.cardText}>
+      Reçois des notifications pour toujours te sentir soutenu !
+    </p>
+    <Button variant="secondary" onClick={() => navigate("/compte/connexion")}>
+      Je me connecte
+    </Button>
+  </div>
+);
+
 const dateLabel = (iso?: string) =>
   iso
     ? new Date(iso).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" })
@@ -80,71 +96,24 @@ export const Dashboard = () => {
         </Hero>
 
         <div className={styles.body}>
-          {allReady ? (
+          {/* La check-list complète = « Tu es prêt » dès maintenant (maquettes
+              316:3849/3946), indépendamment du compte et des notifications :
+              ce sont des invitations secondaires, pas des conditions. */}
+          {!prepDone ? (
             <>
-              <div className={styles.countdown}>
-                <div className={styles.countdownText}>
-                  <p className={styles.countdownLabel}>Ton grand jour</p>
-                  <p className={styles.countdownDate}>{dateLabel(state.quitAt)}</p>
-                </div>
-                <p className={styles.countdownDay}>J-{days}</p>
-              </div>
-
-              <div className={styles.readyCard}>
-                <img src={thumbUp} alt="" width={46} height={46} aria-hidden />
-                <p className={styles.readyTitle}>Tu es prêt !!!</p>
-                <p className={styles.readyText}>Tu vas y arriver !</p>
-              </div>
-
               <div className={styles.card}>
-                <p className={styles.blockTitle}>Fais nous un feedback avant de commencer !</p>
+                <p className={styles.blockTitle}>D’ici là on t’équipe !</p>
                 <p className={styles.cardText}>
-                  Si tu penses qu’il manque un élément à la préparation, dis le
-                  nous !
+                  Chaque jour avant l’arrêt, l’app t’envoie de quoi partir bien
+                  équipé pour l’ascension ! Tes raisons, tes déclencheurs, ta
+                  stratégie, tes infos !
                 </p>
-                <Button variant="secondary" onClick={() => navigate("/feedback")}>
-                  Dis nous tout !
+                <Button variant="secondary" onClick={() => navigate("/defis")}>
+                  Complète ta préparation
                 </Button>
               </div>
-            </>
-          ) : (
-            <>
-              {(!prepDone || !notifsActive) && (
-                <div className={styles.card}>
-                  <p className={styles.blockTitle}>D’ici là on t’équipe !</p>
-                  <p className={styles.cardText}>
-                    Chaque jour avant l’arrêt, l’app t’envoie de quoi partir bien
-                    équipé pour l’ascension ! Tes raisons, tes déclencheurs, ta
-                    stratégie, tes infos !
-                  </p>
-                  <Button
-                    variant="secondary"
-                    onClick={() =>
-                      navigate(prepDone ? "/compte/notifications" : "/defis")
-                    }
-                  >
-                    {prepDone ? "Règle tes notifications" : "Complète ta préparation"}
-                  </Button>
-                </div>
-              )}
 
-              {!connected && (
-                <div className={styles.card}>
-                  <p className={styles.blockTitle}>
-                    Connecte toi pour avoir des notifs par mail et sur tous tes
-                    appareils.
-                  </p>
-                  <p className={styles.cardText}>
-                    Reçois des notifications pour toujours te sentir soutenu !
-                  </p>
-                  <Button
-                    variant="secondary"
-                    onClick={() => navigate("/compte/connexion")}
-                  >
-                    Je me connecte
-                  </Button>
-                </div>
-              )}
+              {!connected && <ConnectCard navigate={navigate} />}
 
               {needsProfiling && (
                 <Card
@@ -156,6 +125,61 @@ export const Dashboard = () => {
                   Trois minutes pour que l’app s’adapte vraiment à toi : tes
                   raisons, ta confiance, ton style.
                 </Card>
+              )}
+            </>
+          ) : (
+            <>
+              <div className={styles.readyCard}>
+                <img src={thumbUp} alt="" width={46} height={46} aria-hidden />
+                <p className={styles.readyTitle}>Tu es prêt !!!</p>
+                <p className={styles.readyText}>Tu vas y arriver !</p>
+              </div>
+
+              {allReady ? (
+                <>
+                  <div className={styles.countdown}>
+                    <div className={styles.countdownText}>
+                      <p className={styles.countdownLabel}>Ton grand jour</p>
+                      <p className={styles.countdownDate}>{dateLabel(state.quitAt)}</p>
+                    </div>
+                    <p className={styles.countdownDay}>J-{days}</p>
+                  </div>
+
+                  <div className={styles.card}>
+                    <p className={styles.blockTitle}>Fais nous un feedback avant de commencer !</p>
+                    <p className={styles.cardText}>
+                      Si tu penses qu’il manque un élément à la préparation, dis
+                      le nous !
+                    </p>
+                    <Button variant="secondary" onClick={() => navigate("/feedback")}>
+                      Dis nous tout !
+                    </Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {!notifsActive && (
+                    <div className={styles.card}>
+                      <p className={styles.blockTitle}>
+                        Prépare toi à être soutenu, à ton rythme.
+                      </p>
+                      <p className={styles.cardText}>
+                        Chaque jour avant l’arrêt, l’app t’envoie de quoi partir
+                        bien équipé pour l’ascension ! Tes raisons, tes
+                        déclencheurs, ta stratégie, tes infos !
+                      </p>
+                      <CreteDivider className={styles.cardDivider} />
+                      <Button
+                        variant="secondary"
+                        onClick={() => navigate("/compte/notifications")}
+                      >
+                        Règle tes notifications
+                      </Button>
+                    </div>
+                  )}
+
+                  {!connected && <ConnectCard navigate={navigate} />}
+                </>
               )}
             </>
           )}

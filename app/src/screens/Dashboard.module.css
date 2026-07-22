@@ -73,6 +73,21 @@
   background: var(--background-subtle);
 }
 
+/* Variante fond quasi blanc (bloc connexion, maquette 316:3849). */
+.cardAlt {
+  display: grid;
+  gap: var(--spacing-base-3);
+  padding: var(--spacing-base-4);
+  border-radius: var(--radius-lg);
+  background: var(--background-default-alt);
+}
+
+/* Séparateur crête entre le texte et le CTA du bloc notifications. */
+.cardDivider {
+  color: var(--game-progress-done);
+  opacity: 0.6;
+}
+
 .cardTitle {
   margin: 0;
   font: var(--text-body-1);
@@ -137,6 +152,7 @@
   gap: var(--spacing-base-3);
   padding: var(--spacing-base-4);
   border-radius: var(--radius-lg);
+  border: 1px solid var(--foreground-default);
   background: var(--background-accent);
   text-align: center;
 }
