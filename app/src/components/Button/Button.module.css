@@ -39,17 +39,18 @@
 }
 
 .secondary {
-  background: var(--background-subtle);
+  background: var(--background-fade);
   border-color: var(--border-interactive);
   color: var(--foreground-interactive);
 
   &:hover:not(:disabled) {
+    background: var(--background-fade-hover);
     border-color: var(--border-interactive-hover);
     color: var(--foreground-interactive-hover);
   }
 
   &:disabled {
-    background: var(--background-default-alt);
+    background: var(--background-fade);
     border-color: var(--border-interactive-disabled);
     color: var(--foreground-interactive-disabled);
   }
