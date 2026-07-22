@@ -571,6 +571,11 @@ export const prepReadiness = (
   total: PREP_MISSIONS.length,
 });
 
+/** Missions de préparation restant à faire, dans l'ordre de la check-list.
+ *  Sert au programme du Fil : ce qui est déjà fait n'y apparaît jamais. */
+export const prepMissionsRemaining = (s: ProfileState): PrepMission[] =>
+  PREP_MISSIONS.filter((m) => !prepMissionDone(s, m));
+
 /** Conseil de préparation (Fil, phase prep) — un par jour, poussé le matin. */
 export interface PrepTip {
   badge: string;

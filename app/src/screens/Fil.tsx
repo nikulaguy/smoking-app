@@ -7,10 +7,10 @@ import { Confetti } from "../components/Confetti/Confetti";
 import { Hero } from "../components/Hero/Hero";
 import { personalize, type FeedKey } from "../profile/personalization";
 import {
-  PREP_TIPS,
   dashboardModel,
   euroSaved,
   prepMissionOfDay,
+  prepMissionsRemaining,
   prepReadiness,
   useProfile,
 } from "../profile/profile";
@@ -53,18 +53,22 @@ export const Fil = () => {
 
   if (m.phase === "prep") {
     const ready = allPrepDone;
-    const mission = prepMissionOfDay(state);
-    const tip = mission.tip!;
     const days = Math.max(1, m.daysUntilQuit);
-    const upcoming = Array.from({ length: Math.min(days, 3) }, (_, i) => {
-      const left = days - i;
-      return {
-        tag: `J-${left}`,
-        theme: PREP_TIPS[i % PREP_TIPS.length].badge,
-        note: i === 0 ? "Aujourd’hui" : i === 1 ? "Demain" : `dans ${i} jours`,
-        today: i === 0,
-      };
-    });
+    // Le programme est DYNAMIQUE : uniquement les missions encore à faire, dans
+    // l'ordre de la check-list. Une info déjà renseignée n'apparaît jamais.
+    const remaining = prepMissionsRemaining(state);
+    // Conseil du jour : seulement s'il reste une mission qui porte un conseil
+    // (les infos d'onboarding, ex. « fumeurs autour de toi », n'en ont pas).
+    const tipMission = remaining.some((r) => r.tip)
+      ? prepMissionOfDay(state)
+      : null;
+    const upcoming = remaining.slice(0, 3).map((mission, i) => ({
+      key: mission.id,
+      tag: `J-${Math.max(1, days - i)}`,
+      theme: mission.tip?.badge ?? mission.title,
+      note: i === 0 ? "Aujourd’hui" : i === 1 ? "Demain" : `dans ${i} jours`,
+      today: i === 0,
+    }));
 
     return (
       <div>
@@ -100,18 +104,20 @@ export const Fil = () => {
               </p>
             </div>
           ) : (
-            <Card
-              variant="link"
-              className={styles.tipCard}
-              badge="Conseil du jour"
-              title={tip.title}
-              onClick={() => navigate(mission.detail)}
-            >
-              {tip.text}
-              <span className={styles.tipNote}>
-                🔔 Reçu ce matin par notification.
-              </span>
-            </Card>
+            tipMission && (
+              <Card
+                variant="link"
+                className={styles.tipCard}
+                badge="Conseil du jour"
+                title={tipMission.tip!.title}
+                onClick={() => navigate(tipMission.detail)}
+              >
+                {tipMission.tip!.text}
+                <span className={styles.tipNote}>
+                  🔔 Reçu ce matin par notification.
+                </span>
+              </Card>
+            )
           )}
 
           {!ready && (
@@ -120,7 +126,7 @@ export const Fil = () => {
               <ul className={styles.progList}>
                 {upcoming.map((r) => (
                   <li
-                    key={r.tag}
+                    key={r.key}
                     className={r.today ? styles.progRowToday : styles.progRow}
                   >
                     <span className={r.today ? styles.pillToday : styles.pill}>
